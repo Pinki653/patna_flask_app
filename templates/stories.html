@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patient Stories | Care Point Hospital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    #hms-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffdd57;
+}
+.dropdown-menu {
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    width: 250px;
+}
+.dropdown-menu .dropdown-item {
+    padding: 10px;
+    color: #007bff;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    outline: none;
+}
+
+  </style>
+  <style>
+    body { font-family: 'Nunito', sans-serif; }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-white to-gray-100 text-gray-800">
+  <div id="hms-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 100px; width: auto;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Departments</a>
+              <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                <li><a class="dropdown-item" href="/car">Cardiology</a></li>
+                <li><a class="dropdown-item" href="/neu">Neurology</a></li>
+                <li><a class="dropdown-item" href="/orth">Orthopedics</a></li>
+                <li><a class="dropdown-item" href="/ped">Pediatrics</a></li>
+                <li><a class="dropdown-item" href="/ono">Oncology</a></li>
+                <li><a class="dropdown-item" href="/der">Dermatology</a></li>
+                <li><a class="dropdown-item" href="/rad">Radiology</a></li>
+                <li><a class="dropdown-item" href="/gas">Gastroenterology</a></li>
+                <li><a class="dropdown-item" href="/uro">Urology</a></li>
+                <li><a class="dropdown-item" href="/ent">ENT</a></li>
+                <li><a class="dropdown-item" href="/gyn">Gynecology</a></li>
+                <li><a class="dropdown-item" href="/nep">Nephrology</a></li>
+                <li><a class="dropdown-item" href="/psy">Psychiatry</a></li>
+              </ul>
+            </li>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('doctor') }}">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('appointment') }}">Book Appointment</a>
+              </li>
+              
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('healthcampus') }}">Health Camps</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Gallery
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('gallery') }}">Photos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('video') }}">Videos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('virtual') }}">Virtual Tour</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="contactUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Contact Us
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="contactUsDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('chat') }}">Customer Support</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('contact') }}">Feedback</a></li>
+
+                  <li><a class="dropdown-item" href="{{ url_for('locate') }}">Locate Us</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('dashboard') }}">Staff Login</a>
+              </li>
+            </ul>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- Header -->
+  <section class="bg-gradient-to-r from-teal-500 to-teal-700 text-white py-16 px-6 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-3">Voices of Healing</h1>
+    <p class="text-lg md:text-xl max-w-2xl mx-auto">Real patients. Real recovery. Real stories from Care Point Hospital.</p>
+  </section>
+
+  <!-- Testimonial Grid -->
+  <section class="py-14 px-6 md:px-16">
+    <h2 class="text-3xl font-bold text-center text-teal-700 mb-12">💬 What Our Patients Say</h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Story Card -->
+      <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition">
+        <div class="flex items-center gap-4 mb-4">
+          <img src="https://randomuser.me/api/portraits/women/65.jpg" class="w-16 h-16 rounded-full border-2 border-teal-500" />
+          <div>
+            <h3 class="text-lg font-semibold">Anjali Verma</h3>
+            <p class="text-sm text-gray-500">Recovered from COVID-19</p>
+          </div>
+        </div>
+        <p class="italic text-gray-600">“Care Point Hospital gave me a second chance. The support from staff during my isolation and recovery was overwhelming.”</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition">
+        <div class="flex items-center gap-4 mb-4">
+          <img src="https://randomuser.me/api/portraits/men/42.jpg" class="w-16 h-16 rounded-full border-2 border-teal-500" />
+          <div>
+            <h3 class="text-lg font-semibold">Raj Malhotra</h3>
+            <p class="text-sm text-gray-500">Heart Surgery Survivor</p>
+          </div>
+        </div>
+        <p class="italic text-gray-600">“State-of-the-art technology and a calm environment helped me recover faster than expected. Forever thankful.”</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition">
+        <div class="flex items-center gap-4 mb-4">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-16 h-16 rounded-full border-2 border-teal-500" />
+          <div>
+            <h3 class="text-lg font-semibold">Drishti Mehra</h3>
+            <p class="text-sm text-gray-500">Cancer Remission</p>
+          </div>
+        </div>
+        <p class="italic text-gray-600">“Each chemo session was met with kindness and encouragement. They treated not just my illness but my spirit.”</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition">
+        <div class="flex items-center gap-4 mb-4">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" class="w-16 h-16 rounded-full border-2 border-teal-500" />
+          <div>
+            <h3 class="text-lg font-semibold">Vikram Sharma</h3>
+            <p class="text-sm text-gray-500">Spinal Injury Recovery</p>
+          </div>
+        </div>
+        <p class="italic text-gray-600">“From wheelchairs to walking on my own — the physio team gave me strength and hope every single day.”</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition">
+        <div class="flex items-center gap-4 mb-4">
+          <img src="https://randomuser.me/api/portraits/women/51.jpg" class="w-16 h-16 rounded-full border-2 border-teal-500" />
+          <div>
+            <h3 class="text-lg font-semibold">Meena Rathi</h3>
+            <p class="text-sm text-gray-500">Maternity Ward</p>
+          </div>
+        </div>
+        <p class="italic text-gray-600">“The maternity care was exceptional. From pregnancy to delivery, the journey felt safe and peaceful.”</p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-2xl p-6 hover:shadow-2xl transition">
+        <div class="flex items-center gap-4 mb-4">
+          <img src="https://randomuser.me/api/portraits/men/33.jpg" class="w-16 h-16 rounded-full border-2 border-teal-500" />
+          <div>
+            <h3 class="text-lg font-semibold">Naveen Rao</h3>
+            <p class="text-sm text-gray-500">Orthopedic Surgery</p>
+          </div>
+        </div>
+        <p class="italic text-gray-600">“The hospital gave me back mobility and confidence. Excellent post-surgery care and timely follow-ups.”</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-teal-600 text-white text-center py-10">
+    <h3 class="text-2xl font-semibold mb-2">Have a Story to Share?</h3>
+    <p class="mb-4">Let your voice inspire someone else. Contact us to get featured on this page.</p>
+    <a href="tel:+91918059684170" class="inline-block bg-white text-teal-700 font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition">Call Us</a>
+  </section>
+
+  <!-- Footer -->
+  {% include 'footer.html' %}
+
+
+</body>
+</html>

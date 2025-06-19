@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dr. Abhishek Raj - Medical Oncology</title>
+  <style>
+    .doctor-profile {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      padding: 30px 0;
+    }
+  
+    .doctor-profile .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+  
+    .doctor-profile .header {
+      text-align: center;
+      background: #007bff;
+      color: white;
+      padding: 30px 20px;
+      border-radius: 12px 12px 0 0;
+      box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.15);
+    }
+  
+    .doctor-profile .header h1 {
+      margin-bottom: 8px;
+      font-size: 2rem;
+    }
+  
+    .doctor-profile .header p {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+  
+    .doctor-profile .profile-img {
+      display: block;
+      margin: 30px auto 20px;
+      border-radius: 10px;
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+  
+    .doctor-profile .section {
+      margin: 20px 0;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    }
+  
+    .doctor-profile h2 {
+      color: #007bff;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+  
+    .doctor-profile ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      color: #333;
+    }
+  
+    .doctor-profile ul li {
+      margin-bottom: 8px;
+    }
+  
+    @media (max-width: 600px) {
+      .doctor-profile .header h1 {
+        font-size: 1.6rem;
+      }
+      .doctor-profile .header p {
+        font-size: 1rem;
+      }
+    }
+              /* Footer Section */
+/* Footer Section */
+.hms-footer-section {
+    background-color: #233243;
+    position: relative;
+    overflow: hidden;
+    z-index: 9;
+}
+
+.hms-footer-section:before {
+    content: '';
+    position: absolute;
+    top: -146%;
+    left: -18%;
+    width: 44%;
+    height: 257%;
+    transform: rotate(54deg);
+    background-color: rgb(31, 47, 64);
+    z-index: -10;
+}
+
+.hms-footer-section:after {
+    content: '';
+    position: absolute;
+    background-color: rgb(31, 47, 64);
+    top: -24%;
+    right: 4%;
+    width: 26%;
+    height: 264%;
+    transform: rotate(44deg);
+    z-index: -10;
+}
+
+.hms-footer-top {
+    padding-top: 96px;
+    padding-bottom: 50px;
+}
+
+.hms-footer-top p,
+.hms-company-footer-contact-list li {
+    color: #ffffff;
+}
+
+.hms-company-footer-contact-list {
+    margin-top: 10px;
+}
+
+.hms-company-footer-contact-list li {
+    display: flex;
+    align-items: center;
+}
+
+.hms-company-footer-contact-list li+li {
+    margin-top: 5px;
+}
+
+.hms-company-footer-contact-list li i {
+    margin-right: 10px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.hms-site-logo {
+    margin-bottom: 25px;
+    display: block;
+    max-width: 170px;
+}
+
+.hms-widget-title {
+    text-transform: capitalize;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+.hms-courses-link-list li+li {
+    margin-top: 10px;
+}
+
+.hms-courses-link-list li a {
+    color: #ffffff;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+.hms-courses-link-list li a:hover {
+    color: #ffb606;
+}
+
+.hms-small-post-title a {
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.hms-post-date {
+    color: #ffb606;
+    margin-bottom: 3px;
+    font-weight: 400;
+}
+
+.hms-small-post-list li+li {
+    margin-top: 30px;
+}
+
+.hms-news-letter-form {
+    margin-top: 15px;
+}
+
+.hms-news-letter-form input {
+    width: 100%;
+    padding: 12px 25px;
+    border-radius: 5px;
+    border: none;
+}
+
+.hms-news-letter-form input[type="submit"] {
+    width: auto;
+    border: none;
+    background-color: #ffb606;
+    padding: 9px 30px;
+    border-radius: 5px;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.hms-footer-bottom {
+    padding: 13px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.149);
+}
+
+.hms-copy-right-text {
+    color: #ffffff;
+}
+
+.hms-copy-right-text a {
+    color: #ffb606;
+}
+
+.hms-terms-privacy li+li {
+    margin-left: 30px;
+}
+
+.hms-terms-privacy li a {
+    color: #ffffff;
+    position: relative;
+}
+
+.hms-terms-privacy li a:after {
+    position: absolute;
+    content: '-';
+    color: #ffffff;
+    display: inline-block;
+    top: 0;
+    right: -18px;
+}
+
+.hms-terms-privacy li+li a:after {
+    display: none;
+}
+
+footer {
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: #f1faee;
+    padding: 20px 0;
+    text-align: center;
+}
+footer h5 {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+footer ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+footer ul li {
+    margin-bottom: 10px;
+}
+footer .hms-quick-link:hover,
+footer .hms-social-link:hover,
+footer .hms-hover-link:hover {
+    color: #a8dadc;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Image Box Styles */
+.hms-img {
+    height: 200px;
+    width: 200px;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/047/656/219/non_2x/abstract-logo-design-for-any-corporate-brand-business-company-vector.jpg");
+    background-size: cover;
+    border: 2px solid blueviolet;
+}
+
+/* Navbar Header */
+#hms-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffdd57;
+}
+.dropdown-menu {
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    width: 250px;
+}
+.dropdown-menu .dropdown-item {
+    padding: 10px;
+    color: #007bff;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    outline: none;
+}
+  </style>
+</head>
+<body>
+  <div id="hms-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 100px; width: auto;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Departments</a>
+              <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                <li><a class="dropdown-item" href="/car">Cardiology</a></li>
+                <li><a class="dropdown-item" href="/neu">Neurology</a></li>
+                <li><a class="dropdown-item" href="/orth">Orthopedics</a></li>
+                <li><a class="dropdown-item" href="/ped">Pediatrics</a></li>
+                <li><a class="dropdown-item" href="/ono">Oncology</a></li>
+                <li><a class="dropdown-item" href="/der">Dermatology</a></li>
+                <li><a class="dropdown-item" href="/rad">Radiology</a></li>
+                <li><a class="dropdown-item" href="/gas">Gastroenterology</a></li>
+                <li><a class="dropdown-item" href="/uro">Urology</a></li>
+                <li><a class="dropdown-item" href="/ent">ENT</a></li>
+                <li><a class="dropdown-item" href="/gyn">Gynecology</a></li>
+                <li><a class="dropdown-item" href="/nep">Nephrology</a></li>
+                <li><a class="dropdown-item" href="/psy">Psychiatry</a></li>
+              </ul>
+            </li>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('doctor') }}">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('appointment') }}">Book Appointment</a>
+              </li>
+              
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('healthcampus') }}">Health Camps</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Gallery
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('gallery') }}">Photos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('video') }}">Videos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('virtual') }}">Virtual Tour</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="contactUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Contact Us
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="contactUsDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('chat') }}">Customer Support</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('contact') }}">Feedback</a></li>
+
+                  <li><a class="dropdown-item" href="{{ url_for('locate') }}">Locate Us</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('dashboard') }}">Staff Login</a>
+              </li>
+            </ul>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="doctor-profile">
+  <div class="container">
+    <div class="header">
+      <h1>Dr. Abhishek Raj</h1>
+      <p>Senior Consultant & Head (Unit I) - Medical Oncology, Haematology & BMT</p>
+      <p>Departments: Medical Oncology, Haematology & BMT, Cancer Care, Genomic Oncology, Paediatric Oncology</p>
+    </div>
+
+    <img class="profile-img" src="https://d3ti1kcp1zfdnq.cloudfront.net/DR_ABHISHEK_RAJ_73722147a5.jpg" alt="Dr. Abhishek Raj" />
+
+    <div class="section">
+      <h2>Information</h2>
+      <p>Dr. Abhishek Raj is the Senior Consultant & Head (Unit I) of Medical Oncology, Haematology & BMT at Sarvodaya Hospital, with vast experience in cancer treatment and bone marrow transplantation. He holds a DM in Medical Oncology from AIIMS, New Delhi, after completing his MD in Internal Medicine from the University College of Medical Sciences and MBBS from Maulana Azad Medical College, Delhi.</p>
+      <p>He specializes in chemotherapy, immunotherapy, targeted therapy, and bone marrow transplantation. His expertise spans solid tumors such as lung, breast, gastrointestinal, and urologic cancers, as well as acute and chronic leukemia. He has held key positions at BLK-Max Hospital, Aakash Healthcare, and Fortis Memorial Research Institute.</p>
+    </div>
+
+    <div class="section">
+      <h2>Specialities</h2>
+      <ul>
+        <li>Administration of Chemotherapy, Immunotherapy, Targeted Therapy</li>
+        <li>Bone Marrow Transplant (BMT)</li>
+        <li>Tumor Management (Lung, Breast, GI, Urologic)</li>
+        <li>Acute & Chronic Leukemia</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Education</h2>
+      <ul>
+        <li>DM (Medical Oncology) – AIIMS, New Delhi</li>
+        <li>MD (Internal Medicine) – University College of Medical Sciences, Delhi</li>
+        <li>MBBS – Maulana Azad Medical College, Delhi</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Experience</h2>
+      <ul>
+        <li>Consultant – BLK-Max Hospital, New Delhi</li>
+        <li>Consultant – Aakash Healthcare Superspeciality Hospital, New Delhi</li>
+        <li>Associate Consultant – Fortis Memorial Research Institute (FMRI), Gurgaon</li>
+        <li>Senior Resident – AIIMS, New Delhi</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Awards & Recognition</h2>
+      <ul>
+        <li>Winner, Oncology Quiz at BEST OF WCLC Conference, 2016 – New Delhi</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Professional Memberships</h2>
+      <ul>
+        <li>European Society for Medical Oncology (ESMO)</li>
+        <li>Indian Journal of Medical and Paediatric Oncology (IJMPO)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Research & Publications</h2>
+      <ul>
+        <li>“Effect of iron deficiency anaemia and iron supplementation on HbA1c levels...” – Clin Chim Acta, 2017</li>
+        <li>“High-dose chemotherapy followed by autologous stem cell transplant...” – Indian J Med Res, 2019</li>
+        <li>“Health-related quality of life analysis among testicular germ cell tumour survivors...” – JCO, 2019</li>
+        <li>“Immunotherapy in nonsmall cell lung cancer...” – IJMPO, 2020</li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  {% include 'footer.html' %}
+</body>
+</html>

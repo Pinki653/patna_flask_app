@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prescription Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    {% include 'navbar.html' %}
+
+    <div class="container mt-4">
+        <div class="card p-4 shadow-sm">
+            <h2 class="mb-3 text-info">💊 Prescription Management</h2>
+            <form method="POST" class="row g-3">
+                <div class="col-md-4">
+                    <input name="patient_name" placeholder="Patient Name" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <input name="doctor_name" placeholder="Doctor Name" class="form-control" required>
+                </div>
+                <div class="col-md-4">
+                    <input name="date" type="date" class="form-control" required>
+                </div>
+                <div class="col-12">
+                    <textarea name="details" placeholder="Prescription Details" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="col-12 text-end">
+                    <button class="btn btn-info px-4">+ Add Prescription</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="mt-4">
+            <h4 class="mb-3">📁 Stored Prescriptions</h4>
+            <ul class="list-group shadow-sm">
+                {% for p in prescriptions %}
+                <li class="list-group-item">
+                    <strong>{{ p.patient_name }}</strong> ({{ p.doctor_name }}) - <span class="text-muted">{{ p.date }}</span><br>
+                    <div class="mt-1">{{ p.details }}</div>
+                </li>
+                {% else %}
+                <li class="list-group-item text-muted">No prescriptions available yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% include 'footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

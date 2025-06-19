@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Care Point</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <style>
+   
+    #header {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 0;
+    }
+    .navbar-dark .navbar-nav .nav-link {
+      color: white;
+      font-weight: bold;
+    }
+    .navbar-dark .navbar-nav .nav-link:hover {
+      color: #ffdd57;
+    }
+    .dropdown-menu {
+      background-color: white;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      max-height: 400px;
+      overflow-y: auto;
+      width: 250px;
+    }
+    .dropdown-menu .dropdown-item {
+      padding: 10px;
+      color: #007bff;
+      font-weight: 500;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .dropdown-menu .dropdown-item:hover {
+      background-color: #007bff;
+      color: white;
+    }
+
+    
+  
+    /* Set carousel image height to 500px */
+    .carousel-item img {
+      height: 500px;
+      object-fit: cover; /* Ensures images fill the space without distortion */
+      width: 100%;
+    }
+    .carousel-caption {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px;
+      border-radius: 5px;
+    }
+ footer {
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: #f1faee;
+    padding: 20px 0;
+    text-align: center;
+}
+footer h5 {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+footer ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+footer ul li {
+    margin-bottom: 10px;
+}
+footer .quick-link:hover, footer .social-link:hover, footer .hover-link:hover {
+    color: #a8dadc;
+    text-decoration: underline;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Image Box Styles */
+.img {
+    height: 200px;
+    width: 200px;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/047/656/219/non_2x/abstract-logo-design-for-any-corporate-brand-business-company-vector.jpg");
+    background-size: cover;
+    border: 2px solid blueviolet;
+}
+.footer1 {
+      background-color: #0b2545;
+      padding: 30px 0;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+    }
+
+    .footer1 h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      color: #f1faee;
+      letter-spacing: 1px;
+    }
+
+    .footer1 p {
+      font-size: 16px;
+      margin: 8px 0;
+      color: #a8dadc;
+    }
+
+    .iitian-names {
+      font-weight: bold;
+      color: #ffd166;
+    }
+
+    .details-button {
+      margin-top: 15px;
+      background-color: #118ab2;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .details-button:hover {
+      background-color: #06d6a0;
+      color: #073b4c;
+      box-shadow: 0 0 8px #06d6a0;
+    }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 100px; width: auto;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Departments</a>
+              <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                <li><a class="dropdown-item" href="car">Cardiology</a></li>
+                <li><a class="dropdown-item" href="/neu">Neurology</a></li>
+                <li><a class="dropdown-item" href="/orth">Orthopedics</a></li>
+                <li><a class="dropdown-item" href="/ped">Pediatrics</a></li>
+                <li><a class="dropdown-item" href="/ono">Oncology</a></li>
+                <li><a class="dropdown-item" href="/der">Dermatology</a></li>
+                <li><a class="dropdown-item" href="/rad">Radiology</a></li>
+                <li><a class="dropdown-item" href="/gas">Gastroenterology</a></li>
+                <li><a class="dropdown-item" href="/uro">Urology</a></li>
+                <li><a class="dropdown-item" href="/ent">ENT</a></li>
+                <li><a class="dropdown-item" href="/gyn">Gynecology</a></li>
+                <li><a class="dropdown-item" href="/nep">Nephrology</a></li>
+                <li><a class="dropdown-item" href="/psy">Psychiatry</a></li>
+              </ul>
+            </li>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('doctor') }}">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('appointment') }}">Book Appointment</a>
+              </li>
+              
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('healthcampus') }}">Health Camps</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Gallery
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('gallery') }}">Photos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('video') }}">Videos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('virtual') }}">Virtual Tour</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="contactUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Contact Us
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="contactUsDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('chat') }}">Customer Support</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('contact') }}">Feedback</a></li>
+
+                  <li><a class="dropdown-item" href="{{ url_for('locate') }}">Locate Us</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('dashboard') }}">Staff Login</a>
+              </li>
+            </ul>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+ 
+  
+
+  <div id="hospitalCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      {% for item in carousel_items %}
+      <button type="button" data-bs-target="#hospitalCarousel" data-bs-slide-to="{{ loop.index0 }}" {% if loop.first %}class="active"{% endif %} aria-label="Slide {{ loop.index }}"></button>
+      {% endfor %}
+    </div>
+    <div class="carousel-inner">
+      {% for item in carousel_items %}
+      <div class="carousel-item {% if loop.first %}active{% endif %}">
+        <img src="{{ item.src }}" class="d-block w-100" alt="{{ item.alt }}">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>{{ item.caption }}</h5>
+          <p>{{ item.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#hospitalCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#hospitalCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  
+    <div class="container icon-box-section">
+      <div class="icon-box-row">
+        <!-- Icon Boxes -->
+        <div class="icon-box">
+          <div class="icon">
+            <i class="fas fa-user-md"></i>
+          </div>
+          <h3>Expert Doctors</h3>
+          <p>Our team of highly skilled doctors ensures the best care for you and your family.</p>
+        </div>
+        <div class="icon-box">
+          <div class="icon">
+            <i class="fas fa-hospital"></i>
+          </div>
+          <h3>Modern Facilities</h3>
+          <p>State-of-the-art equipment and comfortable facilities for top-notch treatment.</p>
+        </div>
+        <div class="icon-box">
+          <div class="icon">
+            <i class="fas fa-heartbeat"></i>
+          </div>
+          <h3>24/7 Emergency</h3>
+          <p>Our emergency department is open round the clock to provide immediate care.</p>
+        </div>
+        <div class="icon-box">
+          <div class="icon">
+            <i class="fas fa-user-md"></i>
+          </div>
+          <h3>Experienced Doctors</h3>
+          <p>Get treated by top-notch doctors who specialize in providing expert care tailored to your needs.</p>
+        </div>
+        <div class="icon-box">
+          <div class="icon">
+            <i class="fas fa-hospital-alt"></i>
+          </div>
+          <h3>Advanced Facilities</h3>
+          <p>Enjoy state-of-the-art facilities designed to ensure your comfort and effective treatment.</p>
+        </div>
+        <div class="icon-box">
+          <div class="icon">
+            <i class="fas fa-ambulance"></i>
+          </div>
+          <h3>Emergency Support</h3>
+          <p>Our emergency team is available 24/7 to provide life-saving support whenever you need it.</p>
+        </div>
+      </div>
+    </div>
+  
+  
+  
+    <div class="container top-experts-section">
+      <h2 class="section-title">Meet Our Top Experts</h2>
+      <p class="section-description">Our team of dedicated professionals is here to provide world-class healthcare services. Meet the experts who make it possible.</p>
+      <div class="experts-row">
+        <!-- Expert Cards -->
+        <div class="expert-card">
+          <div class="expert-image">
+            <img src="https://bighospitals.in/assets/img/team/doctor-10.jpg" alt="Dr.Huliraj N">
+          </div>
+          <h3 class="expert-name">Dr.Huliraj N</h3>
+          <p class="expert-specialty">Pulmonologist</p>
+          <p class="expert-bio">Dr.Huliraj N is a Pulmonologist at BIG Hospitals-Bangalore Institute of Gastroenterology in Jayanagar, Bangalore. He completed MBBS from J.S.S Medical College, Mysore in 1990, DNB – Pulmonary Medicine from Jawaharlal Institute of Postgraduate Medical Education and Research (JIPMER), Pondicherry in 1990 and Diploma in Tuberculosis and Chest Diseases (DTCD) from Government Medical College, Mysore in 1991.
+            He is a member of Karnataka Medical Council.</p>
+        </div>
+        <div class="expert-card">
+          <div class="expert-image">
+            <img src="https://bigapollospectra.com/assets/uploads/doctor-16.webp" alt=" Dr Bindu Sinha">
+          </div>
+          <h3 class="expert-name"> Dr Bindu Sinha</h3>
+          <p class="expert-specialty">Gynaecologist</p>
+          <p class="expert-bio">Prof. Dr. (Mrs) Bindu Sinha is a well experienced Specialist Gynaecologist and Obstrician with a wide expertise in the field of Gynecological and Obs Surgeries.
+
+            Dr. Bindu Sinha currently works as Consultant Gynaecologist at BIG Apollo Spectra Hospital, Patna. She has practiced at several medical institutions in India and has gained a rich experience of 38 years and isÂ best gynaecologist in Patna. Dr. Bindu Sinha has performed several major Gynaecological and Obs cases. She has also completed Basic and Advanced courses like DNB and MRCOGI (Kathmandu)</p>
+        </div>
+        <div class="expert-card">
+          <div class="expert-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQff7mpU3-TBnBY_6IeRNrb0Khmbm8cpu-rNQ&s" alt="Dr. Vivek Kumar">
+          </div>
+          <h3 class="expert-name">Dr. Vivek Kumar</h3>
+          <p class="expert-specialty">Cardiologist</p>
+          <p class="expert-bio">Dr. Vivek Kumar is one of the most renowned cardiologists in the Delhi-NCR region specializing in the treatment of heart diseases and cardiovascular problems like heart attack, high blood pressure, blood clots, cardiac arrest, high cholesterol, atherosclerosis, chest pain, abnormal heart rhythms, etc.</p>
+        </div>
+      </div>
+    </div>
+  
+  
+
+    <div class="icons-container">
+      <div class="icons">
+        <i class="fas fa-user-md"></i>
+        <h3>180+</h3>
+        <p>Doctors on Duty</p>
+      </div>
+      <div class="icons">
+        <i class="fas fa-users"></i>
+        <h3>2300+</h3>
+        <p>Satisfied Patients</p>
+      </div>
+      <div class="icons">
+        <i class="fas fa-procedures"></i>
+        <h3>700+</h3>
+        <p>Bed Facility</p>
+      </div>
+      <div class="icons">
+        <i class="fas fa-hospital"></i>
+        <h3>70+</h3>
+        <p>Available Hospitals</p>
+      </div>
+    </div>
+    
+
+
+
+
+
+    <div class="reviews-container">
+      <h2 class="section-title">What Our Patients Say</h2>
+      <div class="reviews-row">
+        <!-- Review 1 -->
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://media.istockphoto.com/id/1466995518/photo/business-woman-and-worker-portrait-at-office-desk-as-administration-executive-company-manager.jpg?s=612x612&w=0&k=20&c=NvKeG6Fh0_VVfH_N0Ka-5j8284XJhL2VTJfe6IwDkWQ=" alt="Reviewer Photo" class="reviewer-photo">
+            <div>
+              <h3 class="reviewer-name">John Doe</h3>
+              <p class="reviewer-role">Patient</p>
+            </div>
+          </div>
+          <p class="review-text">
+            "The doctors and staff were extremely professional and caring. I felt well taken care of during my entire treatment."
+          </p>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+        <!-- Review 2 -->
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://media.istockphoto.com/id/1664876848/photo/happy-crossed-arms-and-portrait-of-asian-man-in-studio-smile-for-career-work-and-job.jpg?s=612x612&w=0&k=20&c=2vYaOMnlmzMEmB441bTWHUyeFXRIh56wE79QAhVWYBk=" alt="Reviewer Photo" class="reviewer-photo">
+            <div>
+              <h3 class="reviewer-name">Jane Smith</h3>
+              <p class="reviewer-role">Patient</p>
+            </div>
+          </div>
+          <p class="review-text">
+            "The hospital facilities were top-notch, and the care provided by the doctors was exceptional. Highly recommended!"
+          </p>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        <!-- Review 3 -->
+        <div class="review-card">
+          <div class="review-header">
+            <img src="https://img.freepik.com/free-photo/portrait-young-man-with-green-hoodie_23-2148514952.jpg" alt="Reviewer Photo" class="reviewer-photo">
+            <div>
+              <h3 class="reviewer-name">Emily Brown</h3>
+              <p class="reviewer-role">Patient</p>
+            </div>
+          </div>
+          <p class="review-text">
+            "I was impressed by the cleanliness and efficiency of the hospital. The doctors explained everything clearly and made me feel at ease."
+          </p>
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <i class="far fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="contact-container">
+      <h2 class="section-title">Contact Us</h2>
+      <div class="contact-row">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <div class="info-item">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <h4>Phone</h4>
+              <p>+91 98765 43210</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h4>Email</h4>
+              <p>contact@hospital.com</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h4>Location</h4>
+              <p>123 Health St., New Delhi, India</p>
+            </div>
+          </div>
+        </div>
+        <!-- Google Map -->
+        <div class="google-map">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14128.877034416458!2d77.20888369208744!3d28.61386519713974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd076b923f3b%3A0xd3e3c3b4643b87e0!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1683104891398!5m2!1sen!2sin" 
+            width="100%" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="footer1">
+      <h2>Capstone Project - IIT Patna</h2>
+      <p>Made with dedication by three IITians:</p>
+      <p class="iitian-names">Pinki, Abhijit & Falak</p>
+      <button class="details-button" onclick="window.location.href='/details'">See the Details</button>
+    </div>
+  <footer class="footer-section">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="widget company-intro-widget">
+              <a href="index.html" class="site-logo"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 150px; width: auto;"></a>
+              <p> Care Point is a leading healthcare provider dedicated to offering the best medical services. With state-of-the-art technology and a team of expert doctors, we ensure your health and well-being are our top priorities.</p>
+              <ul class="company-footer-contact-list">
+                <li><i class="fas fa-phone"></i>0123456789</li>
+                <li><i class="fas fa-clock"></i>Mon - Sat 8.00 - 18.00</li>
+              </ul>
+            </div>
+          </div><!-- widget end -->
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="widget course-links-widget">
+              <h5 class="widget-title">Quick link</h5>
+              <ul class="courses-link-list">
+                <li><a href="/index"><i class="fas fa-long-arrow-alt-right"></i>Home</a></li>
+                <li><a href="/doctor"><i class="fas fa-long-arrow-alt-right"></i>Doctors</a></li>
+                <li><a href="/appointment"><i class="fas fa-long-arrow-alt-right"></i>Appointment</a></li>
+                <li><a href="{{ url_for('about') }}"><i class="fas fa-long-arrow-alt-right"></i>About us</a></li>
+                <li><a href="/contact"><i class="fas fa-long-arrow-alt-right"></i>Contact us</a></li>
+                <li><a href="/review"><i class="fas fa-long-arrow-alt-right"></i>Review</a></li>
+                <li><a href="/book-bed"><i class="fas fa-long-arrow-alt-right"></i>Book Bed</a></li>
+                <li><a href="/record"><i class="fas fa-long-arrow-alt-right"></i>Ask Doubt(Video record)</a></li>
+                <li><a href="/covid"><i class="fas fa-long-arrow-alt-right"></i>Check Sympton of covid-19</a></li>
+                <li><a href="/login"><i class="fas fa-long-arrow-alt-right"></i>Staff Login</a></li>
+              </ul>
+            </div>
+          </div><!-- widget end -->
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="widget latest-news-widget">
+              <h5 class="widget-title">Latest News</h5>
+              <ul class="small-post-list">
+                <!-- News Item 1 -->
+                <li>
+                  <div class="small-post-item">
+                    <a href="#" class="post-date">March 20, 2025</a>
+                    <h6 class="small-post-title">
+                      <a href="#">State-of-the-Art MRI Machine Now Available</a>
+                    </h6>
+                  </div>
+                </li>
+                <!-- News Item 2 -->
+                <li>
+                  <div class="small-post-item">
+                    <a href="#" class="post-date">March 15, 2025</a>
+                    <h6 class="small-post-title">
+                      <a href="#">Join Our Free Diabetes Screening Camp</a>
+                    </h6>
+                  </div>
+                </li>
+                <!-- News Item 3 -->
+                <li>
+                  <div class="small-post-item">
+                    <a href="#" class="post-date">March 10, 2025</a>
+                    <h6 class="small-post-title">
+                      <a href="#">We’ve Opened a New Pediatric Wing!</a>
+                    </h6>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="widget newsletter-widget">
+              <h5 class="widget-title">Newsletter</h5>
+              <div class="footer-newsletter">
+                <p>Sign Up to Our Newsletter to Get Latest Updates & Services</p>
+                <form class="news-letter-form">
+                  <input type="email" name="news-email" id="news-email" placeholder="Your email address">
+                  <input type="submit" value="Send">
+                </form>
+              </div>
+            </div>
+          </div><!-- widget end -->
+        </div>
+      </div> 
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 text-sm-left text-center">
+              <span class="copy-right-text">© 2025 <a href="https://codepen.io/anupkumar92">Care Point</a> All Rights Reserved.</span>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <ul class="terms-privacy d-flex justify-content-sm-end justify-content-center">
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div><!-- footer-bottom end -->
+  </footer>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

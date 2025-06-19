@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - Healing Touch & Care Point Hospital</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <style>
+    .hero-section {
+      background: linear-gradient(rgba(0,123,255,0.6), rgba(0,123,255,0.6)),
+                  url('https://images.unsplash.com/photo-1588776814546-1e6cb82fae48?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+      padding: 80px 15px;
+      text-align: center;
+      color: white;
+    }
+    .hero-section h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+    }
+    .section {
+      background-color: #ffffff;
+      padding: 40px 20px;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .section h2 {
+      color: #007bff;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    footer {
+      background-color: #007bff;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    @media (max-width: 768px) {
+      .hero-section h1 {
+        font-size: 2rem;
+      }
+      .team-member img {
+        width: 100px;
+        height: 100px;
+      }
+      
+    }
+
+              /* Footer Section */
+/* Footer Section */
+.hms-footer-section {
+    background-color: #233243;
+    position: relative;
+    overflow: hidden;
+    z-index: 9;
+}
+
+.hms-footer-section:before {
+    content: '';
+    position: absolute;
+    top: -146%;
+    left: -18%;
+    width: 44%;
+    height: 257%;
+    transform: rotate(54deg);
+    background-color: rgb(31, 47, 64);
+    z-index: -10;
+}
+
+.hms-footer-section:after {
+    content: '';
+    position: absolute;
+    background-color: rgb(31, 47, 64);
+    top: -24%;
+    right: 4%;
+    width: 26%;
+    height: 264%;
+    transform: rotate(44deg);
+    z-index: -10;
+}
+
+.hms-footer-top {
+    padding-top: 96px;
+    padding-bottom: 50px;
+}
+
+.hms-footer-top p,
+.hms-company-footer-contact-list li {
+    color: #ffffff;
+}
+
+.hms-company-footer-contact-list {
+    margin-top: 10px;
+}
+
+.hms-company-footer-contact-list li {
+    display: flex;
+    align-items: center;
+}
+
+.hms-company-footer-contact-list li+li {
+    margin-top: 5px;
+}
+
+.hms-company-footer-contact-list li i {
+    margin-right: 10px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.hms-site-logo {
+    margin-bottom: 25px;
+    display: block;
+    max-width: 170px;
+}
+
+.hms-widget-title {
+    text-transform: capitalize;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+.hms-courses-link-list li+li {
+    margin-top: 10px;
+}
+
+.hms-courses-link-list li a {
+    color: #ffffff;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+.hms-courses-link-list li a:hover {
+    color: #ffb606;
+}
+
+.hms-small-post-title a {
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.hms-post-date {
+    color: #ffb606;
+    margin-bottom: 3px;
+    font-weight: 400;
+}
+
+.hms-small-post-list li+li {
+    margin-top: 30px;
+}
+
+.hms-news-letter-form {
+    margin-top: 15px;
+}
+
+.hms-news-letter-form input {
+    width: 100%;
+    padding: 12px 25px;
+    border-radius: 5px;
+    border: none;
+}
+
+.hms-news-letter-form input[type="submit"] {
+    width: auto;
+    border: none;
+    background-color: #ffb606;
+    padding: 9px 30px;
+    border-radius: 5px;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.hms-footer-bottom {
+    padding: 13px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.149);
+}
+
+.hms-copy-right-text {
+    color: #ffffff;
+}
+
+.hms-copy-right-text a {
+    color: #ffb606;
+}
+
+.hms-terms-privacy li+li {
+    margin-left: 30px;
+}
+
+.hms-terms-privacy li a {
+    color: #ffffff;
+    position: relative;
+}
+
+.hms-terms-privacy li a:after {
+    position: absolute;
+    content: '-';
+    color: #ffffff;
+    display: inline-block;
+    top: 0;
+    right: -18px;
+}
+
+.hms-terms-privacy li+li a:after {
+    display: none;
+}
+
+footer {
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: #f1faee;
+    padding: 20px 0;
+    text-align: center;
+}
+footer h5 {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+footer ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+footer ul li {
+    margin-bottom: 10px;
+}
+footer .hms-quick-link:hover,
+footer .hms-social-link:hover,
+footer .hms-hover-link:hover {
+    color: #a8dadc;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Image Box Styles */
+.hms-img {
+    height: 200px;
+    width: 200px;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/047/656/219/non_2x/abstract-logo-design-for-any-corporate-brand-business-company-vector.jpg");
+    background-size: cover;
+    border: 2px solid blueviolet;
+}
+
+/* Navbar Header */
+#hms-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffdd57;
+}
+.dropdown-menu {
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    width: 250px;
+}
+.dropdown-menu .dropdown-item {
+    padding: 10px;
+    color: #007bff;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    outline: none;
+}
+  </style>
+</head>
+<body>
+  <div id="hms-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 100px; width: auto;">
+        </a>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/index">Home</a>
+            </li>
+  
+            <!-- Departments Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Departments
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                <li><a class="dropdown-item" href="/car">Cardiology</a></li>
+                <li><a class="dropdown-item" href="/neu">Neurology</a></li>
+                <li><a class="dropdown-item" href="/orth">Orthopedics</a></li>
+                <li><a class="dropdown-item" href="/ped">Pediatrics</a></li>
+                <li><a class="dropdown-item" href="/ono">Oncology</a></li>
+                <li><a class="dropdown-item" href="/der">Dermatology</a></li>
+                <li><a class="dropdown-item" href="/rad">Radiology</a></li>
+                <li><a class="dropdown-item" href="/gas">Gastroenterology</a></li>
+                <li><a class="dropdown-item" href="/uro">Urology</a></li>
+                <li><a class="dropdown-item" href="/ent">ENT</a></li>
+                <li><a class="dropdown-item" href="/gyn">Gynecology</a></li>
+                <li><a class="dropdown-item" href="/nep">Nephrology</a></li>
+                <li><a class="dropdown-item" href="/psy">Psychiatry</a></li>
+              </ul>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('doctor') }}">Doctors</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('appointment') }}">Book Appointment</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('healthcampus') }}">Health Camps</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+            </li>
+  
+            <!-- Gallery Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Gallery
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                <li><a class="dropdown-item" href="{{ url_for('gallery') }}">Photos</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('video') }}">Videos</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('virtual') }}">Virtual Tour</a></li>
+              </ul>
+            </li>
+  
+            <!-- Contact Us Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="contactUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Contact Us
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="contactUsDropdown">
+                <li><a class="dropdown-item" href="{{ url_for('chat') }}">Customer Support</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('contact') }}">Feedback</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('locate') }}">Locate Us</a></li>
+              </ul>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('dashboard') }}">Staff Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+
+  <div class="container-fluid hero-section">
+    <h1>About Us</h1>
+    <p>Bringing Healthcare and Compassion Together</p>
+  </div>
+
+  <div class="container">
+    <!-- Healing Touch Section -->
+    <div class="section">
+      <h2>Healing Touch Hospital</h2>
+      <p>Healing Touch Hospital is a state-of-the-art healthcare facility offering a wide range of medical services, from emergency care to specialized treatments. Our dedicated team ensures the best outcomes for our patients.</p>
+      <img src="https://www.meitra.com/public/upload_file/63e305666640e1675822438.jpg" class="img-fluid rounded mt-3" alt="Healing Touch Hospital Interior">
+      
+      <h3 class="mt-4">Our Mission</h3>
+      <p>To provide compassionate, high-quality, and affordable healthcare services to our community.</p>
+
+      <h3>Our Core Values</h3>
+      <ul>
+        <li>Compassion: We treat every patient with dignity and respect.</li>
+        <li>Excellence: We strive for the highest standards in medical care.</li>
+        <li>Innovation: We embrace new technologies and treatments.</li>
+        <li>Integrity: We operate with transparency and honesty.</li>
+        <li>Community: We are committed to improving public health.</li>
+      </ul>
+
+      <h3 class="mt-4">Meet Our Team</h3>
+      <div class="row text-center">
+        <div class="col-md-4 team-member">
+          <img src="https://www.spineandneurosurgeryhospitalindia.com/dr-ajaya-nand-jha/images/consult-dr-ajaya-nand-jha-best-neurosurgeon-medanta-gurgaon-delhi.jpg" alt="Dr. John Doe">
+          <h6>Dr. John Doe</h6>
+          <p>Cardiologist</p>
+        </div>
+        <div class="col-md-4 team-member">
+          <img src="https://max-website20-images.s3.ap-south-1.amazonaws.com/Whats_App_Image_2024_08_26_at_17_18_33_09be06e347.jpeg" alt="Dr. Jane Smith">
+          <h6>Dr. Jane Smith</h6>
+          <p>Neurologist</p>
+        </div>
+        <div class="col-md-4 team-member">
+          <img src="https://d35oenyzp35321.cloudfront.net/dr_kler_cffd222dcd.jpg" alt="Dr. Alex Brown">
+          <h6>Dr. Alex Brown</h6>
+          <p>Orthopedic Surgeon</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Care Point Section -->
+    <div class="section">
+      <h2>Care Point Hospital</h2>
+      <p>Welcome to Care Point Hospital, where compassionate care meets modern medicine. Established in 2012, Care Point is a 300+ bed multi-specialty healthcare institution offering advanced treatments and a people-first philosophy.</p>
+
+      <h3>Our Journey</h3>
+      <p>From a humble 20-bed facility to a regional leader in healthcare, Care Point Hospital has grown by putting people over profits and excellence over convenience.</p>
+
+      <h3>Our Vision</h3>
+      <p>To become the most trusted and accessible healthcare provider by delivering holistic, innovative, and patient-centered care.</p>
+
+      <h3>Our Mission</h3>
+      <p>We are committed to:</p>
+      <ul>
+        <li>High-quality and evidence-based treatment</li>
+        <li>Affordable healthcare for every segment of society</li>
+        <li>Patient-first environment and infrastructure</li>
+        <li>Community awareness programs and outreach</li>
+        <li>Continuous innovation in research and care</li>
+      </ul>
+
+      <h3>Facilities</h3>
+      <ul>
+        <li>24x7 Emergency Services</li>
+        <li>Advanced Diagnostic Labs & Modern OTs</li>
+        <li>Fully-equipped ICU and NICU</li>
+        <li>Blood Bank and Pharmacy</li>
+        <li>Telemedicine & Video Consultation</li>
+      </ul>
+
+      <h3>Why Choose Care Point?</h3>
+      <ul>
+        <li>Skilled and experienced professionals</li>
+        <li>Transparent billing systems</li>
+        <li>Personalized treatment plans</li>
+        <li>Safe, clean, and healing environment</li>
+      </ul>
+
+      <h3>Community Outreach</h3>
+      <p>We host awareness drives, vaccination camps, blood donation events, and rural health programs to serve beyond our walls.</p>
+    </div>
+  </div>
+
+  {% include 'footer.html' %}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

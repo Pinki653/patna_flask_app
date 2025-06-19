@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virtual Hospital Tour | Healing Touch & Care Point</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #eef1f6;
+      margin: 0;
+      padding: 0;
+      color: #2c3e50;
+    }
+
+    header {
+      background-color: #2dbcc9;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #007BFF;
+    }
+
+    .section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .facilities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .facility-card {
+      flex: 1 1 280px;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .facility-card h3 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+
+    .facility-card p {
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 10px 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      .section h2 {
+        font-size: 1.7rem;
+      }
+
+      iframe {
+        height: 350px;
+      }
+    }
+    /* Navbar Header */
+#hms-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffdd57;
+}
+.dropdown-menu {
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    width: 250px;
+}
+.dropdown-menu .dropdown-item {
+    padding: 10px;
+    color: #007bff;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    outline: none;
+}
+
+  </style>
+</head>
+<body>
+  <div id="hms-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 100px; width: auto;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Departments</a>
+              <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                <li><a class="dropdown-item" href="/car">Cardiology</a></li>
+                <li><a class="dropdown-item" href="/neu">Neurology</a></li>
+                <li><a class="dropdown-item" href="/orth">Orthopedics</a></li>
+                <li><a class="dropdown-item" href="/ped">Pediatrics</a></li>
+                <li><a class="dropdown-item" href="/ono">Oncology</a></li>
+                <li><a class="dropdown-item" href="/der">Dermatology</a></li>
+                <li><a class="dropdown-item" href="/rad">Radiology</a></li>
+                <li><a class="dropdown-item" href="/gas">Gastroenterology</a></li>
+                <li><a class="dropdown-item" href="/uro">Urology</a></li>
+                <li><a class="dropdown-item" href="/ent">ENT</a></li>
+                <li><a class="dropdown-item" href="/gyn">Gynecology</a></li>
+                <li><a class="dropdown-item" href="/nep">Nephrology</a></li>
+                <li><a class="dropdown-item" href="/psy">Psychiatry</a></li>
+              </ul>
+            </li>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('doctor') }}">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('appointment') }}">Book Appointment</a>
+              </li>
+              
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('healthcampus') }}">Health Camps</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Gallery
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('gallery') }}">Photos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('video') }}">Videos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('virtual') }}">Virtual Tour</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="contactUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Contact Us
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="contactUsDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('chat') }}">Customer Support</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('contact') }}">Feedback</a></li>
+
+                  <li><a class="dropdown-item" href="{{ url_for('locate') }}">Locate Us</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('dashboard') }}">Staff Login</a>
+              </li>
+            </ul>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <header>
+    <h1>Virtual Hospital Tour</h1>
+    <p>Healing Touch & Care Point Hospital</p>
+  </header>
+
+  <section class="section">
+    <h2>Welcome to Our Virtual Tour</h2>
+    <p>
+      We are proud to offer a digital walkthrough of our hospital campus. Whether you're a patient, visitor, or a future healthcare partner, this tour gives you a glimpse of our state-of-the-art infrastructure, world-class facilities, and patient-centric environment.
+    </p>
+    <iframe 
+  src="https://www.youtube.com/embed/XFPGDeHHjZg?autoplay=1&mute=1&rel=0&controls=1&modestbranding=1&showinfo=0" 
+  title="Hospital Virtual Tour"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+  allowfullscreen>
+</iframe>
+  </section>
+
+  <section class="section">
+    <h2>Explore Our Facilities</h2>
+    <div class="facilities">
+      <div class="facility-card">
+        <h3>Modern Wards</h3>
+        <p>Spacious and sanitized rooms with oxygen supply, climate control, and smart monitoring systems.</p>
+      </div>
+      <div class="facility-card">
+        <h3>Emergency & Trauma Center</h3>
+        <p>24/7 emergency care with fully equipped trauma units and a dedicated team of specialists.</p>
+      </div>
+      <div class="facility-card">
+        <h3>Operation Theaters</h3>
+        <p>Advanced modular OTs with robotic support and sterile environments for all kinds of surgeries.</p>
+      </div>
+      <div class="facility-card">
+        <h3>Diagnostics & Labs</h3>
+        <p>Instant access to X-ray, MRI, CT Scan, pathology and blood tests with digital reports.</p>
+      </div>
+      <div class="facility-card">
+        <h3>ICUs & Ventilator Support</h3>
+        <p>Critical care ICUs with round-the-clock monitoring and experienced ICU specialists.</p>
+      </div>
+      <div class="facility-card">
+        <h3>Telemedicine Consultation</h3>
+        <p>Virtual appointments with our doctors from the comfort of your home using secure video call services.</p>
+      </div>
+    </div>
+  </section>
+
+  {% include 'footer.html' %}
+
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+      .custom-footer h1,
+      .custom-footer h2,
+      .custom-footer h3,
+      .custom-footer h4,
+      .custom-footer h5,
+      .custom-footer h6 {}
+      
+      .custom-footer section {
+          padding: 60px 0;
+          min-height: 100vh;
+      }
+      
+      .custom-footer a,
+      .custom-footer a:hover,
+      .custom-footer a:focus,
+      .custom-footer a:active {
+          text-decoration: none;
+          outline: none;
+      }
+      
+      .custom-footer a,
+      .custom-footer a:active,
+      .custom-footer a:focus {
+          color: #6f6f6f;
+          text-decoration: none;
+          transition: all 0.2s ease-in-out;
+      }
+      
+      .custom-footer ul {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+      }
+      
+      .custom-footer img {
+          max-width: 100%;
+          height: auto;
+      }
+      
+      .custom-footer .footer-section {
+          background-color: #233243;
+          position: relative;
+          overflow: hidden;
+          z-index: 9;
+      }
+      
+      .custom-footer .footer-section:before {
+          content: '';
+          position: absolute;
+          top: -146%;
+          left: -18%;
+          width: 44%;
+          height: 257%;
+          transform: rotate(54deg);
+          background-color: rgb(31, 47, 64);
+          z-index: -10;
+      }
+      
+      .custom-footer .footer-section:after {
+          position: absolute;
+          content: '';
+          background-color: rgb(31, 47, 64);
+          top: -24%;
+          right: 4%;
+          width: 26%;
+          height: 264%;
+          transform: rotate(44deg);
+          z-index: -10;
+      }
+      
+      .custom-footer .footer-top {
+          padding-top: 96px;
+          padding-bottom: 50px;
+      }
+      
+      .custom-footer .footer-top p,
+      .custom-footer .company-footer-contact-list li {
+          color: #ffffff;
+      }
+      
+      .custom-footer .company-footer-contact-list {
+          margin-top: 10px;
+      }
+      
+      .custom-footer .company-footer-contact-list li {
+          display: flex;
+          align-items: center;
+      }
+      
+      .custom-footer .company-footer-contact-list li+li {
+          margin-top: 5px;
+      }
+      
+      .custom-footer .company-footer-contact-list li i {
+          margin-right: 10px;
+          font-size: 20px;
+      }
+      
+      .custom-footer .footer-top .site-logo {
+          margin-bottom: 25px;
+          max-width: 170px;
+      }
+      
+      .custom-footer .widget-title {
+          text-transform: capitalize;
+          color: #ffffff;
+          margin-bottom: 40px;
+      }
+      
+      .custom-footer .courses-link-list li+li {
+          margin-top: 10px;
+      }
+      
+      .custom-footer .courses-link-list li a {
+          color: #ffffff;
+          text-transform: capitalize;
+          font-weight: 400;
+      }
+      
+      .custom-footer .courses-link-list li a:hover {
+          color: #ffb606;
+      }
+      
+      .custom-footer .courses-link-list li i {
+          margin-right: 5px;
+      }
+      
+      .custom-footer .footer-top .small-post-title a {
+          color: #ffffff;
+          font-weight: 400;
+      }
+      
+      .custom-footer .small-post-item .post-date {
+          color: #ffb606;
+          margin-bottom: 3px;
+      }
+      
+      .custom-footer .small-post-list li+li {
+          margin-top: 30px;
+      }
+      
+      .custom-footer .news-letter-form {
+          margin-top: 15px;
+      }
+      
+      .custom-footer .news-letter-form input {
+          width: 100%;
+          padding: 12px 25px;
+          border-radius: 5px;
+          border: none;
+      }
+      
+      .custom-footer .news-letter-form input[type="submit"] {
+          width: auto;
+          background-color: #ffb606;
+          padding: 9px 30px;
+          border-radius: 5px;
+          color: #ffffff;
+          margin-top: 10px;
+      }
+      
+      .custom-footer .footer-bottom {
+          padding: 13px 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.149);
+      }
+      
+      .custom-footer .copy-right-text {
+          color: #ffffff;
+      }
+      
+      .custom-footer .copy-right-text a {
+          color: #ffb606;
+      }
+      
+      .custom-footer .terms-privacy li+li {
+          margin-left: 30px;
+      }
+      
+      .custom-footer .terms-privacy li a {
+          color: #ffffff;
+          position: relative;
+      }
+      
+      .custom-footer .terms-privacy li a:after {
+          content: '-';
+          color: #ffffff;
+          position: absolute;
+          top: 0;
+          right: -18px;
+      }
+      
+      .custom-footer .terms-privacy li+li a:after {
+          display: none;
+      }
+      
+      .custom-footer .footer1 {
+          background-color: #0b2545;
+          padding: 30px 0;
+          color: #ffffff;
+          text-align: center;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      .custom-footer .footer1 h2 {
+          margin-bottom: 10px;
+          font-size: 24px;
+          color: #f1faee;
+          letter-spacing: 1px;
+      }
+      
+      .custom-footer .footer1 p {
+          font-size: 16px;
+          margin: 8px 0;
+          color: #a8dadc;
+      }
+      
+      .custom-footer .iitian-names {
+          font-weight: bold;
+          color: #ffd166;
+      }
+      
+      .custom-footer .details-button {
+          margin-top: 15px;
+          background-color: #118ab2;
+          color: white;
+          border: none;
+          padding: 10px 18px;
+          border-radius: 8px;
+          font-size: 15px;
+          cursor: pointer;
+          transition: 0.3s ease;
+      }
+      
+      .custom-footer .details-button:hover {
+          background-color: #06d6a0;
+          color: #073b4c;
+          box-shadow: 0 0 8px #06d6a0;
+      }
+      </style>
+      
+</head>
+<body>
+  <div class="custom-footer">
+    <div class="footer1">
+        <h2>Capstone Project - IIT Patna</h2>
+        <p>Made with dedication by three IITians:</p>
+        <p class="iitian-names">Pinki, Abhijit & Falak</p>
+        <button class="details-button" onclick="window.location.href='/details'">See the Details</button>
+      </div>
+      <footer class="footer-section">
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="widget company-intro-widget">
+                  <a href="index.html" class="site-logo"><img src="{{ url_for('static', filename='logo.png') }}" alt="logo"></a>
+                  <p>Care Point is a leading healthcare provider dedicated to offering the best medical services. With state-of-the-art technology and a team of expert doctors, we ensure your health and well-being are our top priorities.</p>
+                  <ul class="company-footer-contact-list">
+                    <li><i class="fas fa-phone"></i>0123456789</li>
+                    <li><i class="fas fa-clock"></i>Mon - Sat 8.00 - 18.00</li>
+                  </ul>
+                </div>
+              </div><!-- widget end -->
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="widget course-links-widget">
+                  <h5 class="widget-title">Popular Courses</h5>
+                  <ul class="courses-link-list">
+                    <li><a href="/index"><i class="fas fa-long-arrow-alt-right"></i>Home</a></li>
+                <li><a href="/doctor"><i class="fas fa-long-arrow-alt-right"></i>Doctors</a></li>
+                <li><a href="/appointment"><i class="fas fa-long-arrow-alt-right"></i>Appointment</a></li>
+                <li><a href="{{ url_for('about') }}"><i class="fas fa-long-arrow-alt-right"></i>About us</a></li>
+                <li><a href="/contact"><i class="fas fa-long-arrow-alt-right"></i>Contact us</a></li>
+                <li><a href="/review"><i class="fas fa-long-arrow-alt-right"></i>Review</a></li>
+                <li><a href="/book-bed"><i class="fas fa-long-arrow-alt-right"></i>Book Bed</a></li>
+                <li><a href="/record"><i class="fas fa-long-arrow-alt-right"></i>Ask Doubt(Video record)</a></li>
+                <li><a href="/covid"><i class="fas fa-long-arrow-alt-right"></i>Check Sympton of covid-19</a></li>
+                <li><a href="/login"><i class="fas fa-long-arrow-alt-right"></i>Staff Login</a></li>
+                  </ul>
+                </div>
+              </div><!-- widget end -->
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="widget latest-news-widget">
+                  <h5 class="widget-title">Latest News</h5>
+                  <ul class="small-post-list">
+                    <!-- News Item 1 -->
+                    <li>
+                      <div class="small-post-item">
+                        <a href="#" class="post-date">March 20, 2025</a>
+                        <h6 class="small-post-title">
+                          <a href="#">State-of-the-Art MRI Machine Now Available</a>
+                        </h6>
+                      </div>
+                    </li>
+                    <!-- News Item 2 -->
+                    <li>
+                      <div class="small-post-item">
+                        <a href="#" class="post-date">March 15, 2025</a>
+                        <h6 class="small-post-title">
+                          <a href="#">Join Our Free Diabetes Screening Camp</a>
+                        </h6>
+                      </div>
+                    </li>
+                    <!-- News Item 3 -->
+                    <li>
+                      <div class="small-post-item">
+                        <a href="#" class="post-date">March 10, 2025</a>
+                        <h6 class="small-post-title">
+                          <a href="#">We’ve Opened a New Pediatric Wing!</a>
+                        </h6>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="widget newsletter-widget">
+                  <h5 class="widget-title">Newsletter</h5>
+                  <div class="footer-newsletter">
+                    <p>Sign Up to Our Newsletter to Get Latest Updates & Services</p>
+                    <form class="news-letter-form">
+                      <input type="email" name="news-email" id="news-email" placeholder="Your email address">
+                      <input type="submit" value="Send">
+                    </form>
+                  </div>
+                </div>
+              </div><!-- widget end -->
+            </div>
+          </div> 
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+              <div class="row">
+                  <div class="col-md-6 col-sm-6 text-sm-left text-center">
+                    <span class="copy-right-text">© 2025 <a href="https://codepen.io/anupkumar92">Care Point</a> All Rights Reserved.</span>
+                  </div>
+                  <div class="col-md-6 col-sm-6">
+                    <ul class="terms-privacy d-flex justify-content-sm-end justify-content-center">
+                      <li><a href="/term">Terms & Conditions</a></li>
+                      <li><a href="/policy">Privacy Policy</a></li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+          </div><!-- footer-bottom end -->
+        </footer>
+  </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

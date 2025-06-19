@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Symptom Checker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">🤖 AI Symptom Checker</h2>
+        <form method="post" class="mt-4">
+            <div class="mb-3">
+                <label for="symptoms" class="form-label">Enter your symptoms:</label>
+                <input type="text" class="form-control" id="symptoms" name="symptoms" placeholder="e.g., fever, headache, sore throat" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Check Possible Diseases</button>
+        </form>
+
+        {% if diagnosis %}
+        <div class="alert alert-info mt-4">
+            <h4>Possible Diagnoses:</h4>
+            <p>{{ diagnosis }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

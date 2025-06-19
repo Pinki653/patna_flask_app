@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dr. Sandeep Singhal - Nephrology</title>
+  <style>
+    .doctor-profile {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      padding: 30px 0;
+    }
+  
+    .doctor-profile .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+  
+    .doctor-profile .header {
+      text-align: center;
+      background: #007bff;
+      color: white;
+      padding: 30px 20px;
+      border-radius: 12px 12px 0 0;
+      box-shadow: inset 0 -4px 8px rgba(0, 0, 0, 0.15);
+    }
+  
+    .doctor-profile .header h1 {
+      margin-bottom: 8px;
+      font-size: 2rem;
+    }
+  
+    .doctor-profile .header p {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+  
+    .doctor-profile .profile-img {
+      display: block;
+      margin: 30px auto 20px;
+      border-radius: 10px;
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+  
+    .doctor-profile .section {
+      margin: 20px 0;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+    }
+  
+    .doctor-profile h2 {
+      color: #007bff;
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+  
+    .doctor-profile ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      color: #333;
+    }
+  
+    .doctor-profile ul li {
+      margin-bottom: 8px;
+    }
+  
+    @media (max-width: 600px) {
+      .doctor-profile .header h1 {
+        font-size: 1.6rem;
+      }
+      .doctor-profile .header p {
+        font-size: 1rem;
+      }
+    }
+              /* Footer Section */
+/* Footer Section */
+.hms-footer-section {
+    background-color: #233243;
+    position: relative;
+    overflow: hidden;
+    z-index: 9;
+}
+
+.hms-footer-section:before {
+    content: '';
+    position: absolute;
+    top: -146%;
+    left: -18%;
+    width: 44%;
+    height: 257%;
+    transform: rotate(54deg);
+    background-color: rgb(31, 47, 64);
+    z-index: -10;
+}
+
+.hms-footer-section:after {
+    content: '';
+    position: absolute;
+    background-color: rgb(31, 47, 64);
+    top: -24%;
+    right: 4%;
+    width: 26%;
+    height: 264%;
+    transform: rotate(44deg);
+    z-index: -10;
+}
+
+.hms-footer-top {
+    padding-top: 96px;
+    padding-bottom: 50px;
+}
+
+.hms-footer-top p,
+.hms-company-footer-contact-list li {
+    color: #ffffff;
+}
+
+.hms-company-footer-contact-list {
+    margin-top: 10px;
+}
+
+.hms-company-footer-contact-list li {
+    display: flex;
+    align-items: center;
+}
+
+.hms-company-footer-contact-list li+li {
+    margin-top: 5px;
+}
+
+.hms-company-footer-contact-list li i {
+    margin-right: 10px;
+    font-size: 20px;
+    display: inline-block;
+}
+
+.hms-site-logo {
+    margin-bottom: 25px;
+    display: block;
+    max-width: 170px;
+}
+
+.hms-widget-title {
+    text-transform: capitalize;
+    color: #ffffff;
+    margin-bottom: 40px;
+}
+
+.hms-courses-link-list li+li {
+    margin-top: 10px;
+}
+
+.hms-courses-link-list li a {
+    color: #ffffff;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+.hms-courses-link-list li a:hover {
+    color: #ffb606;
+}
+
+.hms-small-post-title a {
+    color: #ffffff;
+    font-weight: 400;
+}
+
+.hms-post-date {
+    color: #ffb606;
+    margin-bottom: 3px;
+    font-weight: 400;
+}
+
+.hms-small-post-list li+li {
+    margin-top: 30px;
+}
+
+.hms-news-letter-form {
+    margin-top: 15px;
+}
+
+.hms-news-letter-form input {
+    width: 100%;
+    padding: 12px 25px;
+    border-radius: 5px;
+    border: none;
+}
+
+.hms-news-letter-form input[type="submit"] {
+    width: auto;
+    border: none;
+    background-color: #ffb606;
+    padding: 9px 30px;
+    border-radius: 5px;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.hms-footer-bottom {
+    padding: 13px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.149);
+}
+
+.hms-copy-right-text {
+    color: #ffffff;
+}
+
+.hms-copy-right-text a {
+    color: #ffb606;
+}
+
+.hms-terms-privacy li+li {
+    margin-left: 30px;
+}
+
+.hms-terms-privacy li a {
+    color: #ffffff;
+    position: relative;
+}
+
+.hms-terms-privacy li a:after {
+    position: absolute;
+    content: '-';
+    color: #ffffff;
+    display: inline-block;
+    top: 0;
+    right: -18px;
+}
+
+.hms-terms-privacy li+li a:after {
+    display: none;
+}
+
+footer {
+    background: linear-gradient(135deg, #1d3557, #457b9d);
+    color: #f1faee;
+    padding: 20px 0;
+    text-align: center;
+}
+footer h5 {
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+footer ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+footer ul li {
+    margin-bottom: 10px;
+}
+footer .hms-quick-link:hover,
+footer .hms-social-link:hover,
+footer .hms-hover-link:hover {
+    color: #a8dadc;
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Image Box Styles */
+.hms-img {
+    height: 200px;
+    width: 200px;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/047/656/219/non_2x/abstract-logo-design-for-any-corporate-brand-business-company-vector.jpg");
+    background-size: cover;
+    border: 2px solid blueviolet;
+}
+
+/* Navbar Header */
+#hms-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffdd57;
+}
+.dropdown-menu {
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    width: 250px;
+}
+.dropdown-menu .dropdown-item {
+    padding: 10px;
+    color: #007bff;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    outline: none;
+}
+  </style>
+</head>
+<body>
+  <div id="hms-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 100px; width: auto;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Departments</a>
+              <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                <li><a class="dropdown-item" href="/car">Cardiology</a></li>
+                <li><a class="dropdown-item" href="/neu">Neurology</a></li>
+                <li><a class="dropdown-item" href="/orth">Orthopedics</a></li>
+                <li><a class="dropdown-item" href="/ped">Pediatrics</a></li>
+                <li><a class="dropdown-item" href="/ono">Oncology</a></li>
+                <li><a class="dropdown-item" href="/der">Dermatology</a></li>
+                <li><a class="dropdown-item" href="/rad">Radiology</a></li>
+                <li><a class="dropdown-item" href="/gas">Gastroenterology</a></li>
+                <li><a class="dropdown-item" href="/uro">Urology</a></li>
+                <li><a class="dropdown-item" href="/ent">ENT</a></li>
+                <li><a class="dropdown-item" href="/gyn">Gynecology</a></li>
+                <li><a class="dropdown-item" href="/nep">Nephrology</a></li>
+                <li><a class="dropdown-item" href="/psy">Psychiatry</a></li>
+              </ul>
+            </li>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('doctor') }}">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('appointment') }}">Book Appointment</a>
+              </li>
+              
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('healthcampus') }}">Health Camps</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Gallery
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('gallery') }}">Photos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('video') }}">Videos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('virtual') }}">Virtual Tour</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="contactUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Contact Us
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="contactUsDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('chat') }}">Customer Support</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('contact') }}">Feedback</a></li>
+
+                  <li><a class="dropdown-item" href="{{ url_for('locate') }}">Locate Us</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('dashboard') }}">Staff Login</a>
+              </li>
+            </ul>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="doctor-profile">
+  <div class="container">
+    <div class="header">
+      <h1>Dr. Sandeep Singhal</h1>
+      <p>Consultant – Nephrology</p>
+      <p>Department: Nephrology, Renal/Kidney Transplant</p>
+    </div>
+
+    <img class="profile-img" src="https://sdk-image2.s3.ap-south-1.amazonaws.com/medium_Dr_Sandeep_for_Website_42dac75bf1.jpg" alt="Dr. Sandeep Singhal" />
+
+    <div class="section">
+      <h2>Specialities</h2>
+      <ul>
+        <li>Critical Care Nephrology</li>
+        <li>Kidney Transplant</li>
+        <li>Glomerular Disease</li>
+        <li>Hemodialysis</li>
+        <li>Improving outcomes in high-risk renal transplantation</li>
+        <li>ICU Nephrology Management</li>
+        <li>Vascular Access/Interventional Nephrology (Perm Cath (TCC), Renal Biopsies, PD Insertion)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Education</h2>
+      <ul>
+        <li>DrNB (Nephrology)</li>
+        <li>MD (Internal Medicine)</li>
+        <li>MBBS</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Experience</h2>
+      <ul>
+        <li>DrNB Nephrology from MPUH Nadiad, Gujarat</li>
+        <li>Consultant, Nephrology at Global Hospital, Nanded, Maharashtra</li>
+        <li>Assistant Professor, Nephrology Department at ESIC Medical College and Hospital, Faridabad</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Awards & Recognition</h2>
+      <ul>
+        <li>1st Position - Quiz Competition, ISN West Zone Conference 2021</li>
+        <li>1st Position - Quiz Competition, ISN Web-Masterclass June 2021</li>
+        <li>5th Position - Quiz Competition, NUTS of SAARC September 2021</li>
+        <li>1st Position - Oral Paper Presentation, ISOT 2021</li>
+        <li>2nd Position - Best Oral Paper Presentation, ISNCON 2022</li>
+        <li>LJ Shah Award for Best Paper Presentation, ISNWZ 2022</li>
+        <li>Presented Oral Paper at International Conference - TTS 2022</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Professional Memberships</h2>
+      <ul>
+        <li>International Society of Nephrology</li>
+        <li>Indian Society of Nephrology</li>
+        <li>Delhi Nephrology Society</li>
+        <li>Interventional Nephrology Forum</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Research & Publications</h2>
+      <ul>
+        <li>Case Report: "Undifferentiated spondyloarthritis progressing to Ankylosing Spondylitis", Vidarbha Journal of Internal Medicine, Vol 24, Jan 2018</li>
+        <li>Konnur A, Gang S, Hegde U, Rajapurkar M, Patel H, Singhal S, Parikh M, Srivastava P. "POS-487: A study of clinical profile and outcome analysis of patients with multiple myeloma and kidney disease in a tertiary care centre in West India." Kidney International Reports. 2021 Apr;6(4):S211. (Second author)</li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  {% include 'footer.html' %}
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book a Bed | Care Point Hospital</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e6f0ff, #ffffff);
+      padding: 40px;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      max-width: 550px;
+      margin: auto;
+      padding: 30px 35px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #333;
+    }
+    input, select {
+      width: 100%;
+      margin-bottom: 18px;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      background-color: #f9f9f9;
+    }
+    input:focus, select:focus {
+      border-color: #007bff;
+      outline: none;
+      background-color: #fff;
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      background-color: #007bff;
+      color: white;
+      font-size: 17px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .brand-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .brand-header img {
+      width: 80px;
+      margin-bottom: 10px;
+    }
+    .brand-header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #007bff;
+    }
+    .footer-note {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <div class="brand-header">
+      <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" alt="Care Point Logo">
+      <h1>Care Point Hospital</h1>
+      <p style="color:#555; font-size: 15px;">Empathy. Excellence. Healing.</p>
+    </div>
+
+    <h2>Book a Hospital Bed</h2>
+
+    <form method="POST" action="/book-bed">
+      <label for="name">Full Name</label>
+      <input type="text" name="name" id="name" placeholder="Enter your full name" required>
+
+      <label for="age">Age</label>
+      <input type="number" name="age" id="age" placeholder="Your age" required>
+
+      <label for="gender">Gender</label>
+      <select name="gender" id="gender" required>
+        <option value="" disabled selected>Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+
+      <label for="department">Department</label>
+      <select name="department" id="department" required>
+        <option value="" disabled selected>Select Department</option>
+        <option>Cardiology</option>
+        <option>Orthopaedics</option>
+        <option>Neurology</option>
+        <option>General Medicine</option>
+        <option>Pediatrics</option>
+        <option>ICU</option>
+      </select>
+
+      <label for="bed_type">Bed Type</label>
+      <select name="bed_type" id="bed_type" required>
+        <option value="" disabled selected>Select Bed Type</option>
+        <option>General</option>
+        <option>Private</option>
+        <option>ICU</option>
+      </select>
+
+      <label for="email">Email Address</label>
+      <input type="email" name="email" id="email" placeholder="Enter your email" required>
+
+      <button type="submit">Book Bed</button>
+    </form>
+
+    <div class="footer-note">
+      © 2025 Care Point Hospital. All rights reserved.
+    </div>
+  </div>
+  
+</body>
+</html>

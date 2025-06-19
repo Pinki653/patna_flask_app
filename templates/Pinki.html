@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pinki - Team 103 | IIT Patna</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #e0e0e0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+   .heading-main {
+  background: linear-gradient(90deg, #ffa726, #ffcc80);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.heading-sub {
+  color: #ffcc80;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-shadow: 0 0 8px #ffcc80, 0 0 20px #ffcc80;
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  font-size: 1.2rem;
+  color: #ff6ec7;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-shadow: 0 0 6px #ff6ec7, 0 0 12px #ff6ec7;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #ff6ec7, #ffb74d);
+  margin-top: 5px;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+
+    .timeline-title {
+      color: #ffa726;
+      font-weight: bold;
+    }
+
+    p {
+      color: #dddddd;
+    }
+
+    .text-muted {
+      color: #aaaaaa !important;
+    }
+
+    .profile-card {
+      background-color: #1e1e1e;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(255, 152, 0, 0.2);
+      padding: 40px;
+    }
+
+    .profile-img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 4px solid #ff9800;
+    }
+
+    .btn-custom {
+      background-color: #ff9800;
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .btn-custom:hover {
+      background-color: #e68900;
+    }
+
+    .skills-box, .about-box, .timeline, .quote-box {
+      background-color: #292929;
+      border-radius: 12px;
+      padding: 25px;
+      margin-top: 40px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .skills-list span {
+      background: #444;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      color: #ffcc80;
+    }
+
+    .timeline-item {
+      border-left: 3px solid #ff9800;
+      padding-left: 15px;
+      margin-bottom: 20px;
+    }
+
+    .quote-box blockquote {
+      font-style: italic;
+      color: #cccccc;
+      border-left: 5px solid #ff9800;
+      padding-left: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .profile-img {
+        margin-top: 30px;
+      }
+    }
+
+    .flip-horizontal {
+      
+      transform: scaleX(-1);
+    }
+
+    #hms-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffdd57;
+}
+.dropdown-menu {
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    width: 250px;
+}
+.dropdown-menu .dropdown-item {
+    padding: 10px;
+    color: #007bff;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    outline: none;
+}
+  </style>
+</head>
+
+<body>
+  <div id="hms-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 100px; width: auto;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Departments</a>
+              <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                <li><a class="dropdown-item" href="/car">Cardiology</a></li>
+                <li><a class="dropdown-item" href="/neu">Neurology</a></li>
+                <li><a class="dropdown-item" href="/orth">Orthopedics</a></li>
+                <li><a class="dropdown-item" href="/ped">Pediatrics</a></li>
+                <li><a class="dropdown-item" href="/ono">Oncology</a></li>
+                <li><a class="dropdown-item" href="/der">Dermatology</a></li>
+                <li><a class="dropdown-item" href="/rad">Radiology</a></li>
+                <li><a class="dropdown-item" href="/gas">Gastroenterology</a></li>
+                <li><a class="dropdown-item" href="/uro">Urology</a></li>
+                <li><a class="dropdown-item" href="/ent">ENT</a></li>
+                <li><a class="dropdown-item" href="/gyn">Gynecology</a></li>
+                <li><a class="dropdown-item" href="/nep">Nephrology</a></li>
+                <li><a class="dropdown-item" href="/psy">Psychiatry</a></li>
+              </ul>
+            </li>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('doctor') }}">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('appointment') }}">Book Appointment</a>
+              </li>
+              
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('healthcampus') }}">Health Camps</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Gallery
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('gallery') }}">Photos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('video') }}">Videos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('virtual') }}">Virtual Tour</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="contactUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Contact Us
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="contactUsDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('chat') }}">Customer Support</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('contact') }}">Feedback</a></li>
+
+                  <li><a class="dropdown-item" href="{{ url_for('locate') }}">Locate Us</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('dashboard') }}">Staff Login</a>
+              </li>
+            </ul>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h1 class="heading-main">IITian Pinki</h1>
+      <p class="text-muted">Capstone Team 103 | IIT Patna</p>
+    </div>
+
+    <div class="row align-items-center profile-card">
+      <div class="col-md-7">
+        <h2 class="heading-sub mb-3">Pinki</h2>
+        <p class="text-warning mb-1">Creative Lead & Full Stack Developer</p>
+        <p>B.Sc. (Hons.) in Computer Science and Data Analytics, IIT Patna</p>
+        <p>
+          Pinki leads the UI/UX and backend development for Team 103’s Capstone project. Known for her creative direction and precise code structure, she brings the best of both design and logic to the table.
+        </p>
+        <a href="details.html" class="btn btn-custom mt-3">← Back to Team</a>
+      </div>
+      <div class="col-md-5">
+        <img src="{{ url_for('static', filename='Pinki.png') }}" alt="Pinki" class="profile-img flip-vertical" />
+      </div>
+    </div>
+
+    <div class="about-box mt-5">
+      <h5 class="section-title">About Me</h5>
+      <p class="mt-3">
+        Hello! I am Pinki from Hisar, Haryana. I passed my 10th and 12th from my
+        native place Hisar from a government school. I crack JEE Mains in 2023 and
+        take admission in a top government Engineering college of Haryana. Now I am
+        pursuing 2nd year of B.Tech in Electronics and Communication Engineering from
+        JC Bose University of Science and Technology, YMCA Faridabad.
+      </p>
+    </div>
+
+    <div class="skills-box">
+      <h5 class="section-title">Skills & Tools</h5>
+      <div class="skills-list mt-3">
+        <span>HTML/CSS</span>
+        <span>JavaScript</span>
+        <span>Node.js</span>
+        <span>Express.js</span>
+        <span>MongoDB</span>
+        <span>Socket.IO</span>
+        <span>Figma</span>
+        <span>UI/UX</span>
+        <span>Authentication</span>
+        <span>Team Leadership</span>
+      </div>
+    </div>
+
+    <div class="timeline mt-5">
+      <h5 class="section-title">Project Highlights</h5>
+      <div class="timeline-item mt-4">
+        <h6 class="timeline-title">Feb 2025 - Capstone Kickoff</h6>
+        <p>Proposed dashboard layout, created initial wireframes, and helped define core features like patient admission and role-based access.</p>
+      </div>
+      <div class="timeline-item">
+        <h6 class="timeline-title">Mar 2025 - UI/UX & Real-Time Features</h6>
+        <p>Designed dark/light mode UI, implemented video calling module using WebRTC + Socket.IO, and integrated database structures.</p>
+      </div>
+      <div class="timeline-item">
+        <h6 class="timeline-title">Apr 2025 - Final Build & Deployment</h6>
+        <p>Finalized front-end polish, performed team testing, and deployed the app with containerized backend support.</p>
+      </div>
+    </div>
+
+    <div class="timeline mt-5">
+      <h5 class="section-title">More About Me</h5>
+      <div class="timeline-item mt-4">
+        <h6 class="timeline-title">2020 - 10th Class Milestone</h6>
+        <p>Secured 98% in 10th board exams from Adarsh High School, Mandi Adampur, Hisar. Laid the foundation for a focused academic path.</p>
+      </div>
+      <div class="timeline-item">
+        <h6 class="timeline-title">2022 - 12th Class PCM</h6>
+        <p>Achieved 95% in Physics, Chemistry, and Mathematics from Govt. Girls Senior Secondary School, Mandi Adampur, Hisar.</p>
+      </div>
+      <div class="timeline-item">
+        <h6 class="timeline-title">2023 - JEE Mains Cracked</h6>
+        <p>Successfully cracked the JEE Mains exam with coaching from Aakash Institute, Hisar, and earned a spot in a top engineering college in Haryana.</p>
+      </div>
+      <div class="timeline-item">
+        <h6 class="timeline-title">2023–2027 - B.Tech in ECE</h6>
+        <p>Currently pursuing B.Tech in Electronics and Communication Engineering at JC Bose University of Science and Technology, YMCA Faridabad.</p>
+      </div>
+      <div class="timeline-item">
+        <h6 class="timeline-title">2024 - Internship at Internshala</h6>
+        <p>Completed a learning-focused internship that introduced me to professional development and remote teamwork through the Internshala platform.</p>
+      </div>
+      <div class="timeline-item">
+        <h6 class="timeline-title">2024–2027 - B.Sc in CS & Data Analytics</h6>
+        <p>Also enrolled in B.Sc (Hons.) in Computer Science and Data Analytics at IIT Patna, expanding technical knowledge with a strong academic base.</p>
+      </div>
+    </div>
+
+    <div class="quote-box mt-5">
+      <h5 class="section-title">Fun Fact</h5>
+      <blockquote class="mt-3">
+        “Design is not just what it looks like and feels like. Design is how it works.” — Steve Jobs
+      </blockquote>
+    </div>
+  </div>
+  {% include 'footer.html' %}
+</body>
+</html>

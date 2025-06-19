@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Top Doctors of India</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background-color: #0073e6;
+      color: #fff;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .table-container {
+      padding: 20px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #0073e6;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    a.button {
+      background-color: #28a745;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.button:hover {
+      background-color: #218838;
+    }
+
+    @media (max-width: 768px) {
+      th, td {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      th, td {
+        padding: 8px;
+        font-size: 12px;
+      }
+
+      img {
+        width: 45px;
+        height: 45px;
+      }
+
+      a.button {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    {% include 'header.html' %}
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Doctor's Name</th>
+          <th>Department</th>
+          <th>Image</th>
+          <th>Appointment</th>
+          <th>Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dr. Ajaya Nand Jha</td>
+          <td>Neurosurgery</td>
+          <td><img src="https://www.spineandneurosurgeryhospitalindia.com/dr-ajaya-nand-jha/images/consult-dr-ajaya-nand-jha-best-neurosurgeon-medanta-gurgaon-delhi.jpg" alt="Dr. Ajaya Nand Jha" /></td>
+          <td><a class="button" href="https://www.medicoexperts.com/top-doctors-in-india/" target="_blank">Book Now</a></td>
+          <td><a class="button" href="tel:+911234567890">Call</a></td>
+        </tr>
+        <tr>
+          <td>Dr. Sandeep Vaishya</td>
+          <td>Neurosurgery</td>
+          <td><img src="https://lh3.googleusercontent.com/p/AF1QipO2HtseueH7VHApq_aVhAdFQASMcJcmCiaD6n-h=s1360-w1360-h1020" alt="Dr. Sandeep Vaishya" /></td>
+          <td><a class="button" href="https://www.medicoexperts.com/top-doctors-in-india/" target="_blank">Book Now</a></td>
+          <td><a class="button" href="tel:+911234567891">Call</a></td>
+        </tr>
+        <tr>
+          <td>Dr. Naresh Trehan</td>
+          <td>Cardiology</td>
+          <td><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRG0EwwrR249SeZWjXJRMl-NpmdY-2m_8CmaPYepZtvFNwPCzk5R0zQyLbWHxQy67oPqqqQOUBigSXxw9ACUnIxhg" alt="Dr. Naresh Trehan" /></td>
+          <td><a class="button" href="https://www.medicoexperts.com/top-doctors-in-india/" target="_blank">Book Now</a></td>
+          <td><a class="button" href="tel:+911234567892">Call</a></td>
+        </tr>
+        <tr>
+          <td>Dr. Devi Shetty</td>
+          <td>Cardiology</td>
+          <td><img src="https://i.ytimg.com/vi/UtahdIgEOww/maxresdefault.jpg" alt="Dr. Devi Shetty" /></td>
+          <td><a class="button" href="https://www.medicoexperts.com/top-doctors-in-india/" target="_blank">Book Now</a></td>
+          <td><a class="button" href="tel:+911234567893">Call</a></td>
+        </tr>
+        <tr>
+          <td>Dr. Suresh Advani</td>
+          <td>Oncology</td>
+          <td><img src="https://www.fortishealthcare.com/drupal-data/doctors/dr-advani-s-h-5446.jpg" alt="Dr. Suresh Advani" /></td>
+          <td><a class="button" href="https://www.medicoexperts.com/top-doctors-in-india/" target="_blank">Book Now</a></td>
+          <td><a class="button" href="tel:+911234567894">Call</a></td>
+        </tr>
+        <tr>
+          <td>Dr. Rajesh Taneja</td>
+          <td>Urology</td>
+          <td><img src="https://drrajeshtaneja.com/wp-content/uploads/2019/04/Dr_Tanejas.png" alt="Dr. Rajesh Taneja" /></td>
+          <td><a class="button" href="https://www.medicoexperts.com/top-doctors-in-india/" target="_blank">Book Now</a></td>
+          <td><a class="button" href="tel:+911234567896">Call</a></td>
+        </tr>
+        <tr>
+          <td>Dr. Randeep Guleria</td>
+          <td>Pulmonology</td>
+          <td><img src="https://etimg.etb2bimg.com/photo/96365924.cms" alt="Dr. Randeep Guleria" /></td>
+          <td><a class="button" href="https://www.medicoexperts.com/top-doctors-in-india/" target="_blank">Book Now</a></td>
+          <td><a class="button" href="tel:+911234567897">Call</a></td>
+        </tr>
+        <tr>
+          <td>Dr. Indira Hinduja</td>
+          <td>Gynecology</td>
+          <td><img src="https://hinduja-prod-assets.s3.ap-south-1.amazonaws.com/s3fs-public/2022-02/indira-hinduja.png" alt="Dr. Indira Hinduja" /></td>
+          <td><a class="button" href="#" target="_blank">Book Now</a></td>
+          <td><a class="button" href="tel:+911234567905">Call</a></td>
+        </tr>
+        <tr>
+  <td>Dr. Ashok Seth</td>
+  <td>Interventional Cardiology</td>
+  <td><img src="https://healthlibrary.askapollo.com/wp-content/uploads/2020/08/dr-ashok-seth.png" alt="Dr. Ashok Seth" /></td>
+  <td><a class="button" href="https://www.fortishealthcare.com" target="_blank">Book Now</a></td>
+  <td><a class="button" href="tel:+911234567910">Call</a></td>
+</tr>
+
+<tr>
+  <td>Dr. Ramakanta Panda</td>
+  <td>Cardiac Surgery</td>
+  <td><img src="https://www.askapollo.com/physical-appointments/uploads/doctor/2021/06/22184253/dr-ramakant-panda-cardiac-surgeon-mumbai.jpg" alt="Dr. Ramakanta Panda" /></td>
+  <td><a class="button" href="https://asianheartinstitute.org" target="_blank">Book Now</a></td>
+  <td><a class="button" href="tel:+911234567911">Call</a></td>
+</tr>
+
+<tr>
+  <td>Dr. Arvinder Singh Soin</td>
+  <td>Liver Transplant</td>
+  <td><img src="https://www.medicoexperts.com/wp-content/uploads/2021/01/dr-arvinder-singh-soin.jpg" alt="Dr. Arvinder Singh Soin" /></td>
+  <td><a class="button" href="https://www.medanta.org" target="_blank">Book Now</a></td>
+  <td><a class="button" href="tel:+911234567912">Call</a></td>
+</tr>
+
+<tr>
+  <td>Dr. Muffazal Lakdawala</td>
+  <td>Bariatric Surgery</td>
+  <td><img src="https://cdn.askapollo.com/live/images/doctors/general-surgery/dr-muffazal-lakdawala-general-surgery-in-mumbai.png" alt="Dr. Muffazal Lakdawala" /></td>
+  <td><a class="button" href="https://www.saifeehospital.com" target="_blank">Book Now</a></td>
+  <td><a class="button" href="tel:+911234567913">Call</a></td>
+</tr>
+
+<tr>
+  <td>Dr. Prathap C Reddy</td>
+  <td>Cardiology / Hospital Chairman</td>
+  <td><img src="https://apollohospitals.com/wp-content/uploads/2021/03/Dr-Prathap-Reddy-1024x1024.png" alt="Dr. Prathap Reddy" /></td>
+  <td><a class="button" href="https://www.apollohospitals.com" target="_blank">Book Now</a></td>
+  <td><a class="button" href="tel:+911234567914">Call</a></td>
+</tr>
+
+<tr>
+  <td>Dr. Narmada Prasad Gupta</td>
+  <td>Urology</td>
+  <td><img src="https://www.medanta.org/assets/images/doctors/2022/06/Dr.NarmadaPrasadGupta.jpg" alt="Dr. Narmada Prasad Gupta" /></td>
+  <td><a class="button" href="https://www.medanta.org" target="_blank">Book Now</a></td>
+  <td><a class="button" href="tel:+911234567915">Call</a></td>
+</tr>
+
+<tr>
+  <td>Dr. Lalit Kumar</td>
+  <td>Oncology (AIIMS)</td>
+  <td><img src="https://www.indiatvnews.com/pics/2021/06/dr-lalit-kumar-1623317017.jpg" alt="Dr. Lalit Kumar" /></td>
+  <td><a class="button" href="https://www.aiims.edu" target="_blank">Book Now</a></td>
+  <td><a class="button" href="tel:+911234567916">Call</a></td>
+</tr>
+
+<tr>
+  <td>Dr. Shamsher Dwivedee</td>
+  <td>Neurology</td>
+  <td><img src="https://cdn.askapollo.com/live/images/doctors/neurology/dr-shamsher-dwivedee-neurology-in-delhi.png" alt="Dr. Shamsher Dwivedee" /></td>
+  <td><a class="button" href="https://www.apollohospitals.com" target="_blank">Book Now</a></td>
+  <td><a class="button" href="tel:+911234567917">Call</a></td>
+</tr>
+
+      </tbody>
+    </table>
+  </div>
+  {% include 'footer.html' %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

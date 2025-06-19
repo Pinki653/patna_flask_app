@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+    
+/* Navbar Header */
+#hms-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffdd57;
+}
+.dropdown-menu {
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    width: 250px;
+}
+.dropdown-menu .dropdown-item {
+    padding: 10px;
+    color: #007bff;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    outline: none;
+}
+
+    
+    </style>
+</head>
+<body>
+    <div id="hms-header">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">
+              <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 100px; width: auto;">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index">Home</a></li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Departments</a>
+                  <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                    <li><a class="dropdown-item" href="/car">Cardiology</a></li>
+                    <li><a class="dropdown-item" href="/neu">Neurology</a></li>
+                    <li><a class="dropdown-item" href="/orth">Orthopedics</a></li>
+                    <li><a class="dropdown-item" href="/ped">Pediatrics</a></li>
+                    <li><a class="dropdown-item" href="/ono">Oncology</a></li>
+                    <li><a class="dropdown-item" href="/der">Dermatology</a></li>
+                    <li><a class="dropdown-item" href="/rad">Radiology</a></li>
+                    <li><a class="dropdown-item" href="/gas">Gastroenterology</a></li>
+                    <li><a class="dropdown-item" href="/uro">Urology</a></li>
+                    <li><a class="dropdown-item" href="/ent">ENT</a></li>
+                    <li><a class="dropdown-item" href="/gyn">Gynecology</a></li>
+                    <li><a class="dropdown-item" href="/nep">Nephrology</a></li>
+                    <li><a class="dropdown-item" href="/psy">Psychiatry</a></li>
+                  </ul>
+                </li>
+                <ul class="navbar-nav ms-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('doctor') }}">Doctors</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('appointment') }}">Book Appointment</a>
+                  </li>
+                  
+                 
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('healthcampus') }}">Health Camps</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Gallery
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                      <li><a class="dropdown-item" href="{{ url_for('gallery') }}">Photos</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('video') }}">Videos</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('virtual') }}">Virtual Tour</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="contactUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Contact Us
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="contactUsDropdown">
+                      <li><a class="dropdown-item" href="{{ url_for('chat') }}">Customer Support</a></li>
+                      <li><a class="dropdown-item" href="{{ url_for('contact') }}">Feedback</a></li>
+    
+                      <li><a class="dropdown-item" href="{{ url_for('locate') }}">Locate Us</a></li>
+                    </ul>
+                  </li>
+    
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('dashboard') }}">Staff Login</a>
+                  </li>
+                </ul>
+                
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

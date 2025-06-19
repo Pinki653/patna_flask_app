@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Locate Us - Care Point</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .location-section {
+      padding: 60px 20px;
+    }
+
+    .map-responsive {
+      overflow: hidden;
+      padding-bottom: 56.25%;
+      position: relative;
+      height: 0;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .map-responsive iframe {
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      border: 0;
+    }
+
+    .contact-box {
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-box h4 {
+      color: #007bff;
+      font-weight: 600;
+    }
+
+    .contact-box p {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+    /* Navbar Header */
+#hms-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffdd57;
+}
+.dropdown-menu {
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    width: 250px;
+}
+.dropdown-menu .dropdown-item {
+    padding: 10px;
+    color: #007bff;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    outline: none;
+}
+  </style>
+</head>
+<body>
+  <div id="hms-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 100px; width: auto;">
+        </a>
+  
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/index">Home</a>
+            </li>
+  
+            <!-- Departments Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Departments
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                <li><a class="dropdown-item" href="/car">Cardiology</a></li>
+                <li><a class="dropdown-item" href="/neu">Neurology</a></li>
+                <li><a class="dropdown-item" href="/orth">Orthopedics</a></li>
+                <li><a class="dropdown-item" href="/ped">Pediatrics</a></li>
+                <li><a class="dropdown-item" href="/ono">Oncology</a></li>
+                <li><a class="dropdown-item" href="/der">Dermatology</a></li>
+                <li><a class="dropdown-item" href="/rad">Radiology</a></li>
+                <li><a class="dropdown-item" href="/gas">Gastroenterology</a></li>
+                <li><a class="dropdown-item" href="/uro">Urology</a></li>
+                <li><a class="dropdown-item" href="/ent">ENT</a></li>
+                <li><a class="dropdown-item" href="/gyn">Gynecology</a></li>
+                <li><a class="dropdown-item" href="/nep">Nephrology</a></li>
+                <li><a class="dropdown-item" href="/psy">Psychiatry</a></li>
+              </ul>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('doctor') }}">Doctors</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('appointment') }}">Book Appointment</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('healthcampus') }}">Health Camps</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+            </li>
+  
+            <!-- Gallery Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Gallery
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                <li><a class="dropdown-item" href="{{ url_for('gallery') }}">Photos</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('video') }}">Videos</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('virtual') }}">Virtual Tour</a></li>
+              </ul>
+            </li>
+  
+            <!-- Contact Us Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="contactUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Contact Us
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="contactUsDropdown">
+                <li><a class="dropdown-item" href="{{ url_for('chat') }}">Customer Support</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('contact') }}">Feedback</a></li>
+                <li><a class="dropdown-item" href="{{ url_for('locate') }}">Locate Us</a></li>
+              </ul>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('dashboard') }}">Staff Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  <div class="container location-section">
+    <div class="text-center mb-5">
+      <h1 class="fw-bold text-primary">Locate Us</h1>
+      <p class="text-muted">Find Care Point's nearest healthcare facility.</p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-6">
+        <div class="map-responsive">
+          <!-- Replace src with your own hospital's map location -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3510.757303814142!2d77.31682137458015!3d28.3723556953484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdd00ba44a91f%3A0x4a9bb7b7dddef170!2sJ.C.%20Bose%20University%20of%20Science%20and%20Technology%2C%20YMCA!5e0!3m2!1sen!2sin!4v1712312345678"
+            width="600" height="450" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="contact-box">
+          <h4>Care Point - Main Hospital</h4>
+          <p><strong>Address:</strong> Sector-6, YMCA University Rd, Faridabad, Haryana - 121006</p>
+          <p><strong>Phone:</strong> +91 9876543210</p>
+          <p><strong>Email:</strong> contact@carepoint.com</p>
+          <p><strong>Opening Hours:</strong><br>
+            Mon - Sat: 9:00 AM – 8:00 PM<br>
+            Sun: Emergency Services Only
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include 'footer.html' %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hospital Gallery</title>
+
+  <!-- Bootstrap & Magnific Popup -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"/>
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .gallery-header {
+      text-align: center;
+      padding: 40px 0 20px;
+    }
+
+    .gallery-header h2 {
+      font-weight: 700;
+    }
+
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .filter-buttons button {
+      margin: 5px;
+      padding: 8px 18px;
+      border: none;
+      border-radius: 20px;
+      background-color: #007bff;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .filter-buttons button.active,
+    .filter-buttons button:hover {
+      background-color: #0056b3;
+    }
+
+    .gallery {
+      margin: 0 auto;
+    }
+
+    .gallery-item {
+      width: 24%;
+      margin-bottom: 15px;
+      float: left;
+      padding: 0 7px;
+      box-sizing: border-box;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 992px) {
+      .gallery-item {
+        width: 32%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-item {
+        width: 48%;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .gallery-item {
+        width: 100%;
+      }
+
+      .gallery-item img {
+        height: 140px;
+      }
+    }
+
+    /* Clearfix */
+    .gallery::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    /* Navbar Header */
+#hms-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 0;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+    font-weight: bold;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffdd57;
+}
+.dropdown-menu {
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+    width: 250px;
+}
+.dropdown-menu .dropdown-item {
+    padding: 10px;
+    color: #007bff;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    outline: none;
+}
+  </style>
+</head>
+<body>
+  <div id="hms-header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">
+          <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" style="height: 100px; width: auto;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="/index">Home</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Departments</a>
+              <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                <li><a class="dropdown-item" href="/car">Cardiology</a></li>
+                <li><a class="dropdown-item" href="/neu">Neurology</a></li>
+                <li><a class="dropdown-item" href="/orth">Orthopedics</a></li>
+                <li><a class="dropdown-item" href="/ped">Pediatrics</a></li>
+                <li><a class="dropdown-item" href="/ono">Oncology</a></li>
+                <li><a class="dropdown-item" href="/der">Dermatology</a></li>
+                <li><a class="dropdown-item" href="/rad">Radiology</a></li>
+                <li><a class="dropdown-item" href="/gas">Gastroenterology</a></li>
+                <li><a class="dropdown-item" href="/uro">Urology</a></li>
+                <li><a class="dropdown-item" href="/ent">ENT</a></li>
+                <li><a class="dropdown-item" href="/gyn">Gynecology</a></li>
+                <li><a class="dropdown-item" href="/nep">Nephrology</a></li>
+                <li><a class="dropdown-item" href="/psy">Psychiatry</a></li>
+              </ul>
+            </li>
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('doctor') }}">Doctors</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('appointment') }}">Book Appointment</a>
+              </li>
+              
+             
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('healthcampus') }}">Health Camps</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Gallery
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="galleryDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('gallery') }}">Photos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('video') }}">Videos</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('virtual') }}">Virtual Tour</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="contactUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Contact Us
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="contactUsDropdown">
+                  <li><a class="dropdown-item" href="{{ url_for('chat') }}">Customer Support</a></li>
+                  <li><a class="dropdown-item" href="{{ url_for('contact') }}">Feedback</a></li>
+
+                  <li><a class="dropdown-item" href="{{ url_for('locate') }}">Locate Us</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('dashboard') }}">Staff Login</a>
+              </li>
+            </ul>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="container">
+    <div class="gallery-header">
+      <h2>Hospital Gallery</h2>
+      <p class="text-muted">Explore facilities, doctors, equipment & more</p>
+    </div>
+
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="*">All</button>
+      <button class="filter-btn" data-filter=".building">Building</button>
+      <button class="filter-btn" data-filter=".doctor">Doctor</button>
+      <button class="filter-btn" data-filter=".equipment">Equipment</button>
+      <button class="filter-btn" data-filter=".other">Other</button>
+    </div>
+
+    <div class="gallery" id="gallery">
+      <div class="gallery-item building">
+        <a href="https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+          <img src="https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hospital Building">
+        </a>
+      </div>
+
+      <div class="gallery" id="gallery">
+         <div class="gallery-item building">
+           <a href="https://images.pexels.com/photos/269077/pexels-photo-269077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+             <img src="https://images.pexels.com/photos/269077/pexels-photo-269077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hospital Building">
+           </a>
+         </div>
+
+         <div class="gallery" id="gallery">
+            <div class="gallery-item building">
+              <a href="https://images.pexels.com/photos/1692693/pexels-photo-1692693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+                <img src="https://images.pexels.com/photos/1692693/pexels-photo-1692693.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hospital Building">
+              </a>
+            </div>
+
+            <div class="gallery" id="gallery">
+               <div class="gallery-item building">
+                 <a href="https://images.pexels.com/photos/668298/pexels-photo-668298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+                   <img src="https://images.pexels.com/photos/668298/pexels-photo-668298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hospital Building">
+                 </a>
+               </div>
+
+               <div class="gallery" id="gallery">
+                  <div class="gallery-item building">
+                    <a href="https://images.pexels.com/photos/668300/pexels-photo-668300.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+                      <img src="https://images.pexels.com/photos/668300/pexels-photo-668300.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hospital Building">
+                    </a>
+                  </div>
+
+                  <div class="gallery" id="gallery">
+                     <div class="gallery-item building">
+                       <a href="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+                         <img src="https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hospital Building">
+                       </a>
+                     </div>
+
+                     <div class="gallery" id="gallery">
+                        <div class="gallery-item building">
+                          <a href="https://images.pexels.com/photos/4108480/pexels-photo-4108480.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+                            <img src="https://images.pexels.com/photos/4108480/pexels-photo-4108480.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hospital Building">
+                          </a>
+                        </div>
+
+                        <div class="gallery" id="gallery">
+                           <div class="gallery-item building">
+                             <a href="https://images.pexels.com/photos/127873/pexels-photo-127873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+                               <img src="https://images.pexels.com/photos/127873/pexels-photo-127873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hospital Building">
+                             </a>
+                           </div>
+
+                           <div class="gallery" id="gallery">
+                              <div class="gallery-item building">
+                                <a href="https://images.pexels.com/photos/19921278/pexels-photo-19921278/free-photo-of-empty-seats-in-corridor.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+                                  <img src="https://images.pexels.com/photos/19921278/pexels-photo-19921278/free-photo-of-empty-seats-in-corridor.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hospital Building">
+                                </a>
+                              </div>
+
+                              <div class="gallery" id="gallery">
+                                 <div class="gallery-item building">
+                                   <a href="https://images.pexels.com/photos/1770818/pexels-photo-1770818.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+                                     <img src="https://images.pexels.com/photos/1770818/pexels-photo-1770818.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Hospital Building">
+                                   </a>
+                                 </div>
+
+      <div class="gallery-item doctor">
+        <a href="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+          <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Doctor">
+        </a>
+      </div>
+
+      <div class="gallery-item doctor">
+         <a href="https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Doctor">
+         </a>
+       </div>
+
+       <div class="gallery-item doctor">
+         <a href="https://images.pexels.com/photos/3279197/pexels-photo-3279197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/3279197/pexels-photo-3279197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Doctor">
+         </a>
+       </div>
+
+       <div class="gallery-item doctor">
+         <a href="https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Doctor">
+         </a>
+       </div>
+ 
+       <div class="gallery-item doctor">
+         <a href="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/2324837/pexels-photo-2324837.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Doctor">
+         </a>
+       </div>
+
+       <div class="gallery-item doctor">
+         <a href="https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Doctor">
+         </a>
+       </div>
+ 
+       <div class="gallery-item doctor">
+         <a href="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Doctor">
+         </a>
+       </div>
+
+       <div class="gallery-item doctor">
+         <a href="https://images.pexels.com/photos/1350560/pexels-photo-1350560.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/1350560/pexels-photo-1350560.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Doctor">
+         </a>
+       </div>
+ 
+       <div class="gallery-item doctor">
+         <a href="https://images.pexels.com/photos/263337/pexels-photo-263337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/263337/pexels-photo-263337.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Doctor">
+         </a>
+       </div>
+
+       <div class="gallery-item doctor">
+         <a href="https://images.pexels.com/photos/52527/dentist-pain-borowac-cure-52527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/52527/dentist-pain-borowac-cure-52527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Doctor">
+         </a>
+       </div>
+ 
+       <div class="gallery-item doctor">
+         <a href="https://images.pexels.com/photos/3259629/pexels-photo-3259629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/3259629/pexels-photo-3259629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Doctor">
+         </a>
+       </div>
+ 
+
+      <div class="gallery-item equipment">
+        <a href="https://images.pexels.com/photos/287237/pexels-photo-287237.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+          <img src="https://images.pexels.com/photos/287237/pexels-photo-287237.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Medical Equipment">
+        </a>
+      </div>
+
+      <div class="gallery-item equipment">
+         <a href="https://images.pexels.com/photos/3845129/pexels-photo-3845129.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
+           <img src="https://images.pexels.com/photos/3845129/pexels-photo-3845129.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Medical Equipment">
+         </a>
+       </div>
+
+       <div class="gallery-item equipment">
+         <a href="https://images.pexels.com/photos/3844581/pexels-photo-3844581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/3844581/pexels-photo-3844581.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Medical Equipment">
+         </a>
+       </div>
+
+       <div class="gallery-item equipment">
+         <a href="https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Medical Equipment">
+         </a>
+       </div>
+         
+       <div class="gallery-item equipment">
+         <a href="https://images.pexels.com/photos/305568/pexels-photo-305568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/305568/pexels-photo-305568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Medical Equipment">
+         </a>
+       </div>
+
+       <div class="gallery-item equipment">
+         <a href="https://images.pexels.com/photos/1001897/pexels-photo-1001897.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/1001897/pexels-photo-1001897.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Medical Equipment">
+         </a>
+       </div>
+
+       <div class="gallery-item equipment">
+         <a href="https://images.pexels.com/photos/3992946/pexels-photo-3992946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/3992946/pexels-photo-3992946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Medical Equipment">
+         </a>
+       </div>
+
+       <div class="gallery-item equipment">
+         <a href="https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/305565/pexels-photo-305565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Medical Equipment">
+         </a>
+       </div>
+
+       <div class="gallery-item equipment">
+         <a href="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Medical Equipment">
+         </a>
+       </div>
+
+       <div class="gallery-item equipment">
+         <a href="https://images.pexels.com/photos/305567/pexels-photo-305567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/305567/pexels-photo-305567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Medical Equipment">
+         </a>
+       </div>
+
+      <div class="gallery-item other">
+        <a href="https://images.pexels.com/photos/1853537/pexels-photo-1853537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+          <img src="https://images.pexels.com/photos/1853537/pexels-photo-1853537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Ambulance">
+        </a>
+      </div>
+
+      <div class="gallery-item other">
+         <a href="https://images.pexels.com/photos/3584099/pexels-photo-3584099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/3584099/pexels-photo-3584099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Ambulance">
+         </a>
+       </div>
+
+       <div class="gallery-item other">
+         <a href="https://images.pexels.com/photos/3452997/pexels-photo-3452997.jpeg" class="popup-link">
+           <img src="https://images.pexels.com/photos/3452997/pexels-photo-3452997.jpeg" alt="Ambulance">
+         </a>
+       </div>
+
+       <div class="gallery-item other">
+         <a href="https://images.pexels.com/photos/3584101/pexels-photo-3584101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/3584101/pexels-photo-3584101.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Ambulance">
+         </a>
+       </div>
+
+
+       <div class="gallery-item other">
+         <a href="https://images.pexels.com/photos/6754163/pexels-photo-6754163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="popup-link">
+           <img src="https://images.pexels.com/photos/6754163/pexels-photo-6754163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=22" alt="Ambulance">
+         </a>
+       </div>
+       <div class="hospital-building-gallery">
+        {% for i in range(1, 50) %}
+          <div class="gallery-item hospital-building">
+            <a href="{{ url_for('static', filename='images/' ~ i ~ '.jpg') }}" class="popup-link">
+              <img src="{{ url_for('static', filename='images/' ~ i ~ '.jpg') }}" alt="Hospital Building {{ i }}">
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+       
+      <!-- Add more items as needed -->
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      var $grid = $('#gallery').isotope({
+        itemSelector: '.gallery-item',
+        layoutMode: 'masonry'
+      });
+
+      $('.filter-btn').on('click', function () {
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+        var filterValue = $(this).attr('data-filter');
+        $grid.isotope({ filter: filterValue });
+      });
+
+      $('.popup-link').magnificPopup({
+        type: 'image',
+        gallery: { enabled: true }
+      });
+    });
+  </script>
+  <!-- Bootstrap Bundle with Popper (required for dropdowns to work) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
